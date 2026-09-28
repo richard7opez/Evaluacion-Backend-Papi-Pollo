@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "nombre": "Papi Pollo Centro",
+    "direccion": "Av. Principal 123",
+    "horario": "12:00 - 23:00",
+    "servicios": ["Retiro en local", "Delivery"],
+    "abierto": true
+  },
+  {
+    "id": 2,
+    "nombre": "Papi Pollo Norte",
+    "direccion": "Los Aromos 456",
+    "horario": "13:00 - 22:30",
+    "servicios": ["Retiro en local"],
+    "abierto": true
+  },
+  {
+    "id": 3,
+    "nombre": "Papi Pollo Sur",
+    "direccion": "Ruta 5 Norte 789",
+    "horario": "12:30 - 22:00",
+    "servicios": ["Delivery", "Pedidos telefónicos"],
+    "abierto": false
+  }
+]

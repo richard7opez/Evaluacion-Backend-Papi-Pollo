@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Sucursales - Papi Pollo{% endblock %}
+
+{% block content %}
+
+
+<section class="hero">
+
+    <div class="hero-grid">
+
+        <div>
+
+            <span class="hero-eyebrow">
+                📍 Encuentra tu local
+            </span>
+
+            <h2 class="hero-title">
+
+                Sucursales
+
+                <span>
+                    Papi Pollo
+                </span>
+
+            </h2>
+
+            <p class="hero-text">
+
+                Conoce nuestros locales,
+                horarios y servicios disponibles.
+
+            </p>
+
+
+            <a
+                href="{% url 'listado_sucursales' %}"
+                class="pp-btn pp-btn-dark"
+            >
+
+                Ver todas las sucursales →
+
+            </a>
+
+        </div>
+
+
+        <div class="hero-image-box">
+
+            <img
+                src="{% static 'img/sucursales/papi_pollo.png' %}"
+                alt="Sucursal Papi Pollo"
+                class="hero-image"
+            >
+
+            <div class="hero-badge">
+                📍 Visítanos
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<div class="section-heading">
+
+    <h2>
+        Todo lo que necesitas
+        <span>saber</span>
+    </h2>
+
+    <p>
+        Antes de visitar tu sucursal Papi Pollo.
+    </p>
+
+</div>
+
+
+<section class="visit-card-grid">
+
+    <article class="visit-card">
+
+        <div class="visit-logo">
+            📍
+        </div>
+
+        <h3>
+            Ubicación
+        </h3>
+
+        <p>
+            Consulta la dirección de nuestros locales.
+        </p>
+
+    </article>
+
+
+    <article class="visit-card">
+
+        <div class="visit-logo">
+            🕒
+        </div>
+
+        <h3>
+            Horarios
+        </h3>
+
+        <p>
+            Revisa nuestros horarios antes de visitarnos.
+        </p>
+
+    </article>
+
+
+    <article class="visit-card">
+
+        <div class="visit-logo">
+            🛵
+        </div>
+
+        <h3>
+            Servicios
+        </h3>
+
+        <p>
+            Conoce los servicios disponibles
+            en cada local.
+        </p>
+
+    </article>
+
+</section>
+
+
+<section class="cta-panel">
+
+    <div class="cta-content">
+
+        <div>
+
+            <h2>
+                Encuentra tu Papi Pollo más cercano
+            </h2>
+
+            <p>
+                Revisa nuestras sucursales disponibles.
+            </p>
+
+        </div>
+
+
+        <a
+            href="{% url 'listado_sucursales' %}"
+            class="pp-btn pp-btn-yellow"
+        >
+            Ver locales →
+        </a>
+
+    </div>
+
+</section>
+
+
+{% endblock %}

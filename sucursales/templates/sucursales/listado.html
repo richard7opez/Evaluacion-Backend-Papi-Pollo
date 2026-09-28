@@ -1,0 +1,181 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Locales - Papi Pollo{% endblock %}
+
+{% block content %}
+
+
+<section class="locations-title">
+
+    <h2>
+        Nuestras Sucursales
+    </h2>
+
+    <p>
+        Revisa nuestros locales,
+        horarios y servicios disponibles.
+    </p>
+
+</section>
+
+
+<section class="store-card">
+
+    <img
+        src="{% static 'img/sucursales/papi_pollo.png' %}"
+        alt="Local Papi Pollo"
+        class="store-image"
+    >
+
+    <div class="store-info">
+
+        <h3>
+            🐔 Papi Pollo
+        </h3>
+
+        <p>
+            Sabor, calidad y tradición.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="branches-grid">
+
+    {% for sucursal in sucursales %}
+
+        <article class="branch-card">
+
+            <div class="branch-head">
+
+                <div class="branch-logo">
+                    🏪
+                </div>
+
+                <div>
+
+                    <h3>
+                        {{ sucursal.nombre }}
+                    </h3>
+
+                    <small>
+                        Local Papi Pollo
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="branch-row">
+
+                <span>📍</span>
+
+                <div>
+                    <strong>Dirección:</strong>
+                    {{ sucursal.direccion }}
+                </div>
+
+            </div>
+
+
+            <div class="branch-row">
+
+                <span>🕒</span>
+
+                <div>
+                    <strong>Horario:</strong>
+                    {{ sucursal.horario }}
+                </div>
+
+            </div>
+
+
+            {% if sucursal.abierto %}
+
+                <span class="status-open">
+                    ✓ Abierto
+                </span>
+
+            {% else %}
+
+                <span class="badge bg-danger">
+                    Cerrado
+                </span>
+
+            {% endif %}
+
+
+            <h4 class="services-title">
+                🍗 Servicios
+            </h4>
+
+
+            {% for servicio in sucursal.servicios %}
+
+                <div class="service-item">
+
+                    <span>
+                        {{ servicio }}
+                    </span>
+
+                    <strong class="text-success">
+                        ✓
+                    </strong>
+
+                </div>
+
+            {% empty %}
+
+                <div class="service-item">
+                    Sin servicios disponibles
+                </div>
+
+            {% endfor %}
+
+        </article>
+
+    {% empty %}
+
+        <div class="alert alert-warning">
+            No hay sucursales disponibles.
+        </div>
+
+    {% endfor %}
+
+</section>
+
+
+<section class="cta-panel">
+
+    <div class="cta-content">
+
+        <div>
+
+            <h2>
+                ¿Ya elegiste tu sucursal?
+            </h2>
+
+            <p>
+                Ahora revisa nuestro menú Papi Pollo.
+            </p>
+
+        </div>
+
+
+        <a
+            href="{% url 'productos' %}"
+            class="pp-btn pp-btn-yellow"
+        >
+            🍗 Ver menú
+        </a>
+
+    </div>
+
+</section>
+
+
+{% endblock %}

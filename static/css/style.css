@@ -1,0 +1,1530 @@
+/* =========================================================
+   PAPI POLLO - CSS COMPLETO
+   DISEÑO LLAMATIVO, COMPACTO Y RESPONSIVE
+   ========================================================= */
+
+:root {
+    --yellow: #ffbd00;
+    --yellow-light: #ffd94a;
+    --orange: #ff8a00;
+    --red: #e63720;
+    --red-dark: #bd2415;
+    --black: #111111;
+    --black-soft: #1e1e1e;
+    --cream: #fff9ef;
+    --white: #ffffff;
+    --green: #18a558;
+    --gray: #666666;
+    --border: #eadfce;
+
+    --shadow:
+        0 10px 24px rgba(0, 0, 0, 0.11);
+}
+
+
+/* =========================================================
+   1. CONFIGURACIÓN GENERAL
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+
+    /*
+    Tamaño ligeramente menor para que la página
+    se vea correctamente al 100% de zoom.
+    */
+    font-size: 13px;
+}
+
+body {
+    margin: 0;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: var(--black);
+
+    background:
+        radial-gradient(
+            circle at 4% 15%,
+            rgba(255, 189, 0, 0.09) 0 70px,
+            transparent 72px
+        ),
+
+        radial-gradient(
+            circle at 96% 70%,
+            rgba(230, 55, 32, 0.06) 0 90px,
+            transparent 92px
+        ),
+
+        var(--cream);
+
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   2. CONTENEDOR GENERAL
+   ========================================================= */
+
+.site-container {
+    width: min(
+        920px,
+        calc(100% - 32px)
+    );
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* =========================================================
+   3. NAVBAR
+   ========================================================= */
+
+.main-navbar {
+    background: var(--black);
+
+    border-bottom:
+        3px solid var(--yellow);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+}
+
+.main-navbar .navbar {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.brand-link {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: white !important;
+
+    text-decoration: none;
+}
+
+.brand-logo {
+    width: 40px;
+    height: 40px;
+
+    display: grid;
+
+    place-items: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--yellow),
+            var(--orange)
+        );
+
+    border-radius: 50%;
+
+    border:
+        2px solid white;
+
+    font-size: 1.4rem;
+
+    box-shadow:
+        0 3px 10px
+        rgba(255, 189, 0, 0.30);
+}
+
+.brand-text {
+    line-height: 1;
+}
+
+.brand-name {
+    display: block;
+
+    color: var(--yellow);
+
+    font-size: 1rem;
+
+    font-weight: 900;
+
+    letter-spacing: 0.5px;
+}
+
+.brand-slogan {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #eeeeee;
+
+    font-size: 0.58rem;
+}
+
+.main-navbar .nav-link {
+    color: white !important;
+
+    font-weight: 700;
+
+    padding:
+        6px 10px !important;
+
+    margin-left: 3px;
+
+    border-radius: 7px;
+
+    transition: 0.2s;
+}
+
+.main-navbar .nav-link:hover {
+    background: var(--yellow);
+
+    color: var(--black) !important;
+}
+
+
+/* =========================================================
+   4. FRANJA AMARILLA SUPERIOR
+   ========================================================= */
+
+.brand-strip {
+    background:
+        linear-gradient(
+            110deg,
+            var(--yellow),
+            var(--yellow-light)
+        );
+
+    padding:
+        7px
+        0;
+
+    border-bottom:
+        1px solid #d79b00;
+}
+
+.brand-strip-content {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    text-align: center;
+}
+
+.brand-strip-icon {
+    font-size: 1.25rem;
+}
+
+.brand-strip h1 {
+    margin: 0;
+
+    font-size: 1.3rem;
+
+    font-weight: 900;
+}
+
+.brand-strip p {
+    margin:
+        1px
+        0
+        0;
+
+    font-size: 0.68rem;
+}
+
+
+/* =========================================================
+   5. CONTENIDO PRINCIPAL
+   ========================================================= */
+
+main {
+    min-height: 55vh;
+
+    padding:
+        20px
+        0;
+}
+
+
+/* =========================================================
+   6. HERO GENERAL
+   ========================================================= */
+
+.hero {
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 23px;
+
+    background:
+        linear-gradient(
+            120deg,
+            #fffdf8 0%,
+            #fff2c7 100%
+        );
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 20px;
+
+    box-shadow:
+        var(--shadow);
+}
+
+.hero::before {
+    content: "🔥";
+
+    position: absolute;
+
+    right: -16px;
+
+    bottom: -45px;
+
+    font-size: 9rem;
+
+    opacity: 0.04;
+
+    transform: rotate(-15deg);
+}
+
+.hero-grid {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 24px;
+
+    align-items: center;
+}
+
+.hero-eyebrow {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    margin-bottom: 10px;
+
+    padding:
+        5px
+        11px;
+
+    background: var(--red);
+
+    color: white;
+
+    border-radius: 999px;
+
+    font-size: 0.67rem;
+
+    font-weight: 800;
+}
+
+.hero-title {
+    margin:
+        0
+        0
+        12px;
+
+    font-size:
+        clamp(
+            1.8rem,
+            3vw,
+            2.7rem
+        );
+
+    line-height: 1.04;
+
+    font-weight: 900;
+}
+
+.hero-title span {
+    color: var(--orange);
+}
+
+.hero-text {
+    max-width: 500px;
+
+    margin-bottom: 16px;
+
+    color: #393939;
+
+    font-size: 0.88rem;
+
+    line-height: 1.5;
+}
+
+.hero-actions {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 9px;
+}
+
+.hero-image-box {
+    position: relative;
+}
+
+.hero-image {
+    display: block;
+
+    width: 100%;
+
+    max-height: 250px;
+
+    aspect-ratio: 16 / 10;
+
+    object-fit: cover;
+
+    border:
+        4px solid white;
+
+    border-radius: 17px;
+
+    box-shadow:
+        0 12px 25px
+        rgba(0, 0, 0, 0.18);
+}
+
+.hero-badge {
+    position: absolute;
+
+    right: 10px;
+
+    bottom: 10px;
+
+    padding:
+        7px
+        10px;
+
+    background: var(--black);
+
+    color: white;
+
+    border:
+        2px solid var(--yellow);
+
+    border-radius: 10px;
+
+    font-size: 0.72rem;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   7. BOTONES
+   ========================================================= */
+
+.pp-btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    min-height: 36px;
+
+    padding:
+        8px
+        14px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    font-size: 0.8rem;
+
+    font-weight: 800;
+
+    text-decoration: none;
+
+    transition: 0.2s;
+}
+
+.pp-btn:hover {
+    transform:
+        translateY(-2px);
+}
+
+.pp-btn-yellow {
+    background: var(--yellow);
+
+    color: var(--black);
+}
+
+.pp-btn-yellow:hover {
+    background: var(--orange);
+
+    color: var(--black);
+}
+
+.pp-btn-dark {
+    background: var(--black);
+
+    color: white;
+}
+
+.pp-btn-dark:hover {
+    background: var(--red);
+
+    color: white;
+}
+
+
+/* =========================================================
+   8. TÍTULOS DE SECCIÓN
+   ========================================================= */
+
+.section-heading {
+    margin:
+        26px
+        auto
+        16px;
+
+    text-align: center;
+}
+
+.section-heading h2 {
+    margin-bottom: 4px;
+
+    font-size:
+        clamp(
+            1.4rem,
+            2.5vw,
+            1.9rem
+        );
+
+    font-weight: 900;
+}
+
+.section-heading h2 span {
+    color: var(--orange);
+}
+
+.section-heading p {
+    margin: 0;
+
+    color: var(--gray);
+
+    font-size: 0.78rem;
+}
+
+
+/* =========================================================
+   9. SECCIÓN OSCURA DE BENEFICIOS
+   ========================================================= */
+
+.features-section {
+    padding: 23px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #151515,
+            #252525
+        );
+
+    border-radius: 20px;
+
+    box-shadow:
+        var(--shadow);
+}
+
+.features-section .section-heading {
+    margin-top: 0;
+}
+
+.features-section
+.section-heading h2,
+
+.features-section
+.section-heading p {
+    color: white;
+}
+
+.feature-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 14px;
+}
+
+.feature-card {
+    padding:
+        18px
+        15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #252525,
+            #171717
+        );
+
+    color: white;
+
+    border:
+        1px solid
+        rgba(255, 189, 0, 0.45);
+
+    border-radius: 15px;
+
+    text-align: center;
+
+    transition: 0.2s;
+}
+
+.feature-card:hover {
+    transform:
+        translateY(-4px);
+
+    border-color:
+        var(--yellow);
+}
+
+.feature-logo {
+    width: 48px;
+    height: 48px;
+
+    display: grid;
+
+    place-items: center;
+
+    margin:
+        0 auto 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--yellow),
+            var(--orange)
+        );
+
+    border:
+        2px solid white;
+
+    border-radius: 50%;
+
+    font-size: 1.3rem;
+}
+
+.feature-card h3 {
+    margin-bottom: 5px;
+
+    font-size: 0.95rem;
+
+    font-weight: 800;
+}
+
+.feature-card p {
+    margin: 0;
+
+    color: #dddddd;
+
+    font-size: 0.72rem;
+}
+
+
+/* =========================================================
+   10. CTA ROJO
+   ========================================================= */
+
+.cta-panel {
+    position: relative;
+
+    overflow: hidden;
+
+    margin-top: 18px;
+
+    padding: 20px;
+
+    background:
+        linear-gradient(
+            120deg,
+            var(--red-dark),
+            var(--red),
+            var(--orange)
+        );
+
+    color: white;
+
+    border-radius: 18px;
+
+    box-shadow:
+        var(--shadow);
+}
+
+.cta-panel::after {
+    content: "🔥";
+
+    position: absolute;
+
+    right: 18px;
+
+    bottom: -25px;
+
+    font-size: 6rem;
+
+    opacity: 0.14;
+}
+
+.cta-content {
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content:
+        space-between;
+
+    gap: 16px;
+}
+
+.cta-panel h2 {
+    margin-bottom: 3px;
+
+    font-size:
+        clamp(
+            1.2rem,
+            2vw,
+            1.55rem
+        );
+
+    font-weight: 900;
+}
+
+.cta-panel p {
+    margin: 0;
+
+    font-size: 0.78rem;
+}
+
+
+/* =========================================================
+   11. MENÚ
+   ========================================================= */
+
+.menu-header {
+    margin-bottom: 20px;
+
+    text-align: center;
+}
+
+.menu-header h2 {
+    margin-bottom: 4px;
+
+    font-size:
+        clamp(
+            1.55rem,
+            2.5vw,
+            2rem
+        );
+
+    font-weight: 900;
+}
+
+.menu-header p {
+    margin: 0;
+
+    color: var(--gray);
+
+    font-size: 0.8rem;
+}
+
+.product-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
+
+    gap: 15px;
+}
+
+.product-card {
+    overflow: hidden;
+
+    background: white;
+
+    border:
+        1px solid var(--border);
+
+    border-bottom:
+        4px solid var(--yellow);
+
+    border-radius: 15px;
+
+    box-shadow:
+        var(--shadow);
+
+    transition: 0.2s;
+}
+
+.product-card:hover {
+    transform:
+        translateY(-4px);
+}
+
+.product-image {
+    display: block;
+
+    width: 100%;
+
+    max-height: 190px;
+
+    aspect-ratio: 16 / 9;
+
+    object-fit: cover;
+}
+
+.product-body {
+    padding: 13px;
+}
+
+.product-body h3 {
+    margin-bottom: 5px;
+
+    font-size: 1rem;
+
+    font-weight: 800;
+}
+
+.product-description {
+    margin-bottom: 8px;
+
+    color: var(--gray);
+
+    font-size: 0.72rem;
+}
+
+.product-footer {
+    display: flex;
+
+    align-items: center;
+
+    justify-content:
+        space-between;
+
+    gap: 8px;
+}
+
+.product-price {
+    font-size: 0.9rem;
+
+    font-weight: 900;
+}
+
+.status-open {
+    display: inline-block;
+
+    padding:
+        4px
+        8px;
+
+    background: var(--green);
+
+    color: white;
+
+    border-radius: 999px;
+
+    font-size: 0.62rem;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   12. TARJETAS INFORMATIVAS SUCURSALES
+   ========================================================= */
+
+.visit-card-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 14px;
+}
+
+.visit-card {
+    padding: 18px;
+
+    background: white;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 15px;
+
+    text-align: center;
+
+    box-shadow:
+        0 7px 18px
+        rgba(0, 0, 0, 0.07);
+}
+
+.visit-logo {
+    width: 46px;
+    height: 46px;
+
+    display: grid;
+
+    place-items: center;
+
+    margin:
+        0 auto 9px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--yellow),
+            var(--yellow-light)
+        );
+
+    border-radius: 13px;
+
+    font-size: 1.25rem;
+}
+
+.visit-card h3 {
+    margin-bottom: 4px;
+
+    font-size: 0.94rem;
+
+    font-weight: 800;
+}
+
+.visit-card p {
+    margin: 0;
+
+    color: var(--gray);
+
+    font-size: 0.71rem;
+}
+
+
+/* =========================================================
+   13. TÍTULO LOCALES
+   ========================================================= */
+
+.locations-title {
+    position: relative;
+
+    overflow: hidden;
+
+    margin-bottom: 15px;
+
+    padding:
+        18px
+        16px;
+
+    background:
+        linear-gradient(
+            115deg,
+            var(--yellow),
+            var(--yellow-light)
+        );
+
+    border-bottom:
+        4px solid var(--orange);
+
+    border-radius: 18px;
+
+    text-align: center;
+
+    box-shadow:
+        var(--shadow);
+}
+
+.locations-title::before {
+    content: "🐔";
+
+    position: absolute;
+
+    left: 18px;
+
+    top: -8px;
+
+    font-size: 4.8rem;
+
+    opacity: 0.09;
+}
+
+.locations-title::after {
+    content: "🔥";
+
+    position: absolute;
+
+    right: 20px;
+
+    bottom: -25px;
+
+    font-size: 5rem;
+
+    opacity: 0.09;
+}
+
+.locations-title h2 {
+    position: relative;
+
+    z-index: 2;
+
+    margin-bottom: 3px;
+
+    font-size:
+        clamp(
+            1.5rem,
+            2.5vw,
+            2rem
+        );
+
+    font-weight: 900;
+}
+
+.locations-title p {
+    position: relative;
+
+    z-index: 2;
+
+    margin: 0;
+
+    font-size: 0.76rem;
+}
+
+
+/* =========================================================
+   14. IMAGEN PRINCIPAL DEL LOCAL
+   ========================================================= */
+
+.store-card {
+    width: 100%;
+
+    overflow: hidden;
+
+    margin-bottom: 15px;
+
+    background:
+        var(--black);
+
+    border-radius: 18px;
+
+    box-shadow:
+        var(--shadow);
+}
+
+.store-image {
+    display: block;
+
+    width: 100%;
+
+    max-height: 260px;
+
+    aspect-ratio: 16 / 6;
+
+    object-fit: cover;
+}
+
+.store-info {
+    padding:
+        11px
+        15px;
+
+    color: white;
+
+    text-align: center;
+}
+
+.store-info h3 {
+    margin: 0;
+
+    font-size: 1.05rem;
+
+    font-weight: 900;
+}
+
+.store-info p {
+    margin:
+        2px
+        0
+        0;
+
+    color: #eeeeee;
+
+    font-size: 0.68rem;
+}
+
+
+/* =========================================================
+   15. TARJETAS DE LOCALES
+   ========================================================= */
+
+.branches-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
+
+    gap: 14px;
+}
+
+.branch-card {
+    padding: 16px;
+
+    background: white;
+
+    border:
+        1px solid var(--border);
+
+    border-bottom:
+        4px solid var(--yellow);
+
+    border-radius: 15px;
+
+    box-shadow:
+        var(--shadow);
+
+    transition: 0.2s;
+}
+
+.branch-card:hover {
+    transform:
+        translateY(-4px);
+}
+
+.branch-head {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-bottom: 11px;
+}
+
+.branch-logo {
+    width: 40px;
+    height: 40px;
+
+    flex:
+        0 0 40px;
+
+    display: grid;
+
+    place-items: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--yellow),
+            var(--orange)
+        );
+
+    border-radius: 11px;
+
+    font-size: 1.1rem;
+}
+
+.branch-head h3 {
+    margin: 0;
+
+    font-size: 0.98rem;
+
+    font-weight: 900;
+}
+
+.branch-head small {
+    color: var(--gray);
+
+    font-size: 0.64rem;
+}
+
+.branch-row {
+    display: flex;
+
+    gap: 6px;
+
+    margin-bottom: 6px;
+
+    font-size: 0.73rem;
+}
+
+.services-title {
+    margin:
+        11px
+        0
+        6px;
+
+    padding-top: 10px;
+
+    border-top:
+        1px dashed #cccccc;
+
+    font-size: 0.85rem;
+
+    font-weight: 900;
+}
+
+.service-item {
+    display: flex;
+
+    align-items: center;
+
+    justify-content:
+        space-between;
+
+    margin-top: 4px;
+
+    padding:
+        6px
+        8px;
+
+    background: #fafafa;
+
+    border:
+        1px solid #eeeeee;
+
+    border-radius: 7px;
+
+    font-size: 0.7rem;
+}
+
+
+/* =========================================================
+   16. FOOTER
+   ========================================================= */
+
+.site-footer {
+    margin-top: 22px;
+
+    padding:
+        22px
+        0
+        12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #090909,
+            #191919
+        );
+
+    color: white;
+
+    border-top:
+        4px solid var(--yellow);
+}
+
+.footer-grid {
+    display: grid;
+
+    grid-template-columns:
+        1.2fr
+        1fr
+        1fr;
+
+    gap: 18px;
+}
+
+.footer-brand {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-bottom: 8px;
+}
+
+.footer-logo {
+    width: 40px;
+    height: 40px;
+
+    display: grid;
+
+    place-items: center;
+
+    background:
+        var(--yellow);
+
+    color:
+        var(--black);
+
+    border-radius: 50%;
+
+    font-size: 1.3rem;
+}
+
+.site-footer h3,
+.site-footer h4 {
+    margin-bottom: 6px;
+
+    color: var(--yellow);
+
+    font-size: 0.92rem;
+
+    font-weight: 900;
+}
+
+.site-footer p,
+.site-footer a {
+    color: #eeeeee;
+
+    font-size: 0.68rem;
+}
+
+.site-footer a {
+    text-decoration: none;
+}
+
+.site-footer a:hover {
+    color: var(--yellow);
+}
+
+.footer-links {
+    margin: 0;
+
+    padding: 0;
+
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 4px;
+}
+
+.footer-bottom {
+    margin-top: 14px;
+
+    padding-top: 10px;
+
+    border-top:
+        1px solid #393939;
+
+    color: #cccccc;
+
+    text-align: center;
+
+    font-size: 0.65rem;
+}
+
+
+/* =========================================================
+   17. NOTEBOOK 1366px
+   ========================================================= */
+
+@media (max-width: 1366px) {
+
+    .site-container {
+        width: min(
+            860px,
+            calc(100% - 28px)
+        );
+    }
+
+    .hero-image {
+        max-height: 230px;
+    }
+
+    .product-image {
+        max-height: 175px;
+    }
+
+    .store-image {
+        max-height: 240px;
+    }
+}
+
+
+/* =========================================================
+   18. TABLET
+   ========================================================= */
+
+@media (max-width: 992px) {
+
+    .site-container {
+        width:
+            min(
+                92%,
+                820px
+            );
+    }
+
+    .hero-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+    .hero-image-box {
+        max-width: 580px;
+
+        margin-left: auto;
+
+        margin-right: auto;
+    }
+
+    .feature-grid,
+    .visit-card-grid {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+    .store-image {
+        aspect-ratio:
+            16 / 8;
+    }
+}
+
+
+/* =========================================================
+   19. CELULAR
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    html {
+        font-size: 14px;
+    }
+
+    .site-container {
+        width:
+            calc(
+                100% - 24px
+            );
+    }
+
+    main {
+        padding:
+            16px
+            0;
+    }
+
+    .brand-strip-icon {
+        display: none;
+    }
+
+    .hero {
+        padding:
+            19px
+            15px;
+
+        border-radius:
+            16px;
+    }
+
+    .hero-title {
+        font-size:
+            1.8rem;
+    }
+
+    .hero-image {
+        max-height:
+            none;
+
+        aspect-ratio:
+            16 / 10;
+    }
+
+    .feature-grid,
+    .visit-card-grid,
+    .branches-grid,
+    .product-grid,
+    .footer-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+    .cta-content {
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+    }
+
+    .store-image {
+        max-height: none;
+
+        aspect-ratio:
+            16 / 9;
+    }
+
+    .product-image {
+        max-height: none;
+
+        aspect-ratio:
+            16 / 9;
+    }
+}
+
+
+/* =========================================================
+   20. CELULAR PEQUEÑO
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .brand-slogan {
+        display: none;
+    }
+
+    .brand-logo {
+        width: 36px;
+        height: 36px;
+
+        font-size: 1.2rem;
+    }
+
+    .brand-name {
+        font-size: 0.9rem;
+    }
+
+    .hero-actions {
+        flex-direction:
+            column;
+    }
+
+    .pp-btn {
+        width: 100%;
+    }
+
+    .locations-title::before,
+    .locations-title::after {
+        opacity: 0.05;
+    }
+}

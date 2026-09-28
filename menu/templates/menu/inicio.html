@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Inicio - Papi Pollo{% endblock %}
+
+{% block content %}
+
+
+<section class="hero">
+
+    <div class="hero-grid">
+
+        <div>
+
+            <span class="hero-eyebrow">
+                🔥 ¡Sabor que se disfruta!
+            </span>
+
+            <h2 class="hero-title">
+
+                Bienvenidos a
+
+                <span>
+                    Papi Pollo
+                </span>
+
+            </h2>
+
+            <p class="hero-text">
+
+                Pollo asado, papas fritas y combos
+                preparados con sabor, calidad y tradición.
+
+            </p>
+
+            <div class="hero-actions">
+
+                <a
+                    href="{% url 'productos' %}"
+                    class="pp-btn pp-btn-yellow"
+                >
+                    🍴 Ver nuestro menú
+                </a>
+
+                <a
+                    href="{% url 'listado_sucursales' %}"
+                    class="pp-btn pp-btn-dark"
+                >
+                    📍 Ver sucursales
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-image-box">
+
+            <img
+                src="{% static 'img/menu/pollo_entero.jpg' %}"
+                alt="Pollo asado Papi Pollo"
+                class="hero-image"
+            >
+
+            <div class="hero-badge">
+                🔥 Recién asado
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="features-section mt-4">
+
+    <div class="section-heading">
+
+        <h2>
+            ¿Por qué elegir
+            <span>Papi Pollo?</span>
+        </h2>
+
+        <p>
+            Porque queremos entregarte sabor
+            y una buena experiencia.
+        </p>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+        <article class="feature-card">
+
+            <div class="feature-logo">
+                🍗
+            </div>
+
+            <h3>
+                Pollo fresco
+            </h3>
+
+            <p>
+                Preparado cuidadosamente para
+                lograr un producto sabroso y de calidad.
+            </p>
+
+        </article>
+
+
+        <article class="feature-card">
+
+            <div class="feature-logo">
+                🔥
+            </div>
+
+            <h3>
+                Sabor único
+            </h3>
+
+            <p>
+                Nuestro pollo combina sazón,
+                tradición y un sabor especial.
+            </p>
+
+        </article>
+
+
+        <article class="feature-card">
+
+            <div class="feature-logo">
+                ❤️
+            </div>
+
+            <h3>
+                Atención de primera
+            </h3>
+
+            <p>
+                Una experiencia rápida,
+                cómoda y agradable.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<section class="cta-panel">
+
+    <div class="cta-content">
+
+        <div>
+
+            <h2>
+                ¿Listo para probar Papi Pollo?
+            </h2>
+
+            <p>
+                Revisa nuestros productos disponibles.
+            </p>
+
+        </div>
+
+
+        <a
+            href="{% url 'productos' %}"
+            class="pp-btn pp-btn-yellow"
+        >
+            Ver menú →
+        </a>
+
+    </div>
+
+</section>
+
+
+{% endblock %}

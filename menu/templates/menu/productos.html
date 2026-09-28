@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Menú - Papi Pollo{% endblock %}
+
+{% block content %}
+
+
+<section class="menu-header">
+
+    <span class="hero-eyebrow">
+        🍗 Nuestro sabor
+    </span>
+
+    <h2>
+        Nuestro Menú
+    </h2>
+
+    <p>
+        Conoce los productos disponibles de Papi Pollo.
+    </p>
+
+</section>
+
+
+<section class="product-grid">
+
+    {% for producto in productos %}
+
+        <article class="product-card">
+
+            <img
+                src="{% static producto.imagen %}"
+                alt="{{ producto.nombre }}"
+                class="product-image"
+            >
+
+
+            <div class="product-body">
+
+                <h3>
+                    {{ producto.nombre }}
+                </h3>
+
+                <p class="product-description">
+                    {{ producto.descripcion }}
+                </p>
+
+
+                <div class="product-footer">
+
+                    <span class="product-price">
+                        ${{ producto.precio }}
+                    </span>
+
+
+                    {% if producto.disponible %}
+
+                        <span class="status-open">
+                            ✓ Disponible
+                        </span>
+
+                    {% else %}
+
+                        <span class="badge bg-danger">
+                            No disponible
+                        </span>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </article>
+
+    {% empty %}
+
+        <p>
+            No hay productos disponibles.
+        </p>
+
+    {% endfor %}
+
+</section>
+
+
+{% endblock %}

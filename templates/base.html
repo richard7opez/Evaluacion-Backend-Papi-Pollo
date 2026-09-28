@@ -1,0 +1,299 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% block title %}Papi Pollo{% endblock %}
+    </title>
+
+    <!-- BOOTSTRAP LOCAL -->
+    <link
+        rel="stylesheet"
+        href="{% static 'bootstrap/css/bootstrap.min.css' %}"
+    >
+
+    <!-- CSS PROPIO -->
+    <link
+        rel="stylesheet"
+        href="{% static 'css/style.css' %}"
+    >
+</head>
+
+
+<body>
+
+
+<!-- ======================================================
+     NAVBAR
+     ====================================================== -->
+
+<div class="main-navbar">
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+
+        <div class="site-container">
+
+            <a href="{% url 'inicio' %}"
+               class="brand-link">
+
+                <div class="brand-logo">
+                    🐔
+                </div>
+
+                <div class="brand-text">
+
+                    <span class="brand-name">
+                        PAPI POLLO
+                    </span>
+
+                    <span class="brand-slogan">
+                        SABOR, CALIDAD Y TRADICIÓN
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menuPrincipal"
+            >
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+
+            <div
+                class="collapse navbar-collapse"
+                id="menuPrincipal"
+            >
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a
+                            class="nav-link"
+                            href="{% url 'inicio' %}"
+                        >
+                            Inicio
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a
+                            class="nav-link"
+                            href="{% url 'productos' %}"
+                        >
+                            Menú
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a
+                            class="nav-link"
+                            href="{% url 'inicio_sucursales' %}"
+                        >
+                            Sucursales
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a
+                            class="nav-link"
+                            href="{% url 'listado_sucursales' %}"
+                        >
+                            Locales
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+</div>
+
+
+<!-- ======================================================
+     FRANJA
+     ====================================================== -->
+
+<section class="brand-strip">
+
+    <div class="site-container brand-strip-content">
+
+        <span class="brand-strip-icon">
+            🔥
+        </span>
+
+        <div>
+
+            <h1>
+                Papi Pollo
+            </h1>
+
+            <p>
+                Pollo asado con sabor, calidad y tradición
+            </p>
+
+        </div>
+
+        <span class="brand-strip-icon">
+            🍗
+        </span>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     CONTENIDO
+     ====================================================== -->
+
+<main>
+
+    <div class="site-container">
+
+        {% block content %}
+
+        {% endblock %}
+
+    </div>
+
+</main>
+
+
+<!-- ======================================================
+     FOOTER
+     ====================================================== -->
+
+<footer class="site-footer">
+
+    <div class="site-container">
+
+        <div class="footer-grid">
+
+            <div>
+
+                <div class="footer-brand">
+
+                    <div class="footer-logo">
+                        🐔
+                    </div>
+
+                    <div>
+
+                        <h3 class="mb-0">
+                            PAPI POLLO
+                        </h3>
+
+                        <small>
+                            Sabor que se disfruta
+                        </small>
+
+                    </div>
+
+                </div>
+
+                <p>
+                    Pollo asado, papas fritas y combos
+                    preparados con sabor y calidad.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Enlaces rápidos
+                </h4>
+
+                <ul class="footer-links">
+
+                    <li>
+                        <a href="{% url 'inicio' %}">
+                            Inicio
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'productos' %}">
+                            Menú
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'inicio_sucursales' %}">
+                            Sucursales
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'listado_sucursales' %}">
+                            Locales
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Papi Pollo
+                </h4>
+
+                <p>
+                    🍗 Pollo asado
+                </p>
+
+                <p>
+                    📍 Región de Coquimbo, Chile
+                </p>
+
+                <p>
+                    🔥 Sabor, calidad y tradición
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            © 2026 Papi Pollo |
+            Sitio desarrollado con Django
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script
+    src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}">
+</script>
+
+</body>
+
+</html>

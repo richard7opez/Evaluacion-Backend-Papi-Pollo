@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "nombre": "Pollo Asado Entero",
+        "descripcion": "Pollo asado al estilo Papi Pollo.",
+        "precio": 12990,
+        "disponible": true,
+        "imagen": "img/menu/pollo_entero.jpg"
+    },
+    {
+        "id": 2,
+        "nombre": "Medio Pollo Asado",
+        "descripcion": "Media porción de pollo asado.",
+        "precio": 7490,
+        "disponible": true,
+        "imagen": "img/menu/medio_pollo.jpg"
+    },
+    {
+        "id": 3,
+        "nombre": "Papas Fritas Familiares",
+        "descripcion": "Porción familiar de papas fritas.",
+        "precio": 4990,
+        "disponible": true,
+        "imagen": "img/menu/papas_fritas.jpg"
+    },
+    {
+        "id": 4,
+        "nombre": "Combo Papi Pollo",
+        "descripcion": "Pollo asado acompañado de papas fritas.",
+        "precio": 15990,
+        "disponible": true,
+        "imagen": "img/menu/combo_pollo_papas.jpg"
+    }
+]
