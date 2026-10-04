@@ -5,7 +5,6 @@
 
 {% block content %}
 
-
 <section class="menu-header">
 
     <span class="hero-eyebrow">
@@ -29,11 +28,22 @@
 
         <article class="product-card">
 
-            <img
-                src="{% static producto.imagen %}"
-                alt="{{ producto.nombre }}"
-                class="product-image"
-            >
+            {% if producto.imagen %}
+
+                <img
+                    src="{{ producto.imagen.url }}"
+                    alt="{{ producto.nombre }}"
+                    class="product-image"
+                >
+
+            {% else %}
+
+                <div class="product-no-image">
+                    <span>🍗</span>
+                    <p>Imagen próximamente</p>
+                </div>
+
+            {% endif %}
 
 
             <div class="product-body">
@@ -83,6 +93,5 @@
     {% endfor %}
 
 </section>
-
 
 {% endblock %}

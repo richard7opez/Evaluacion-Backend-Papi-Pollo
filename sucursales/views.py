@@ -1,6 +1,5 @@
 from django.shortcuts import render
-import json
-from pathlib import Path
+from .models import Sucursal
 
 
 def inicio_sucursales(request):
@@ -8,19 +7,16 @@ def inicio_sucursales(request):
 
 
 def listado_sucursales(request):
-    ruta_json = Path(__file__).resolve().parent / 'data' / 'sucursales.json'
-
-    with open(ruta_json, 'r', encoding='utf-8') as archivo:
-        lista_sucursales = json.load(archivo)
-
-    sucursales_abiertas = []
-
-    for sucursal in lista_sucursales:
-        if sucursal['abierto']:
-            sucursales_abiertas.append(sucursal)
+    sucursales_activas = Sucursal.objects.filter(
+        activa=True
+    ).order_by('nombre')
 
     contexto = {
-        'sucursales': sucursales_abiertas
+        'sucursales': sucursales_activas
     }
 
-    return render(request, 'sucursales/listado.html', contexto)
+    return render(
+        request,
+        'sucursales/listado.html',
+        contexto
+    )

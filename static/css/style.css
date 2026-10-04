@@ -1,7 +1,6 @@
-/* =========================================================
-   PAPI POLLO - CSS COMPLETO
-   DISEÑO LLAMATIVO, COMPACTO Y RESPONSIVE
-   ========================================================= */
+/* ==========================================================
+   PAPI POLLO - STYLE.CSS COMPLETO
+   ========================================================== */
 
 :root {
     --yellow: #ffbd00;
@@ -16,15 +15,13 @@
     --green: #18a558;
     --gray: #666666;
     --border: #eadfce;
-
-    --shadow:
-        0 10px 24px rgba(0, 0, 0, 0.11);
+    --shadow: 0 8px 22px rgba(0, 0, 0, 0.10);
 }
 
 
-/* =========================================================
-   1. CONFIGURACIÓN GENERAL
-   ========================================================= */
+/* ==========================================================
+   1. GENERAL
+   ========================================================== */
 
 * {
     box-sizing: border-box;
@@ -32,39 +29,14 @@
 
 html {
     scroll-behavior: smooth;
-
-    /*
-    Tamaño ligeramente menor para que la página
-    se vea correctamente al 100% de zoom.
-    */
-    font-size: 13px;
+    font-size: 16px;
 }
 
 body {
     margin: 0;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+    font-family: Arial, Helvetica, sans-serif;
     color: var(--black);
-
-    background:
-        radial-gradient(
-            circle at 4% 15%,
-            rgba(255, 189, 0, 0.09) 0 70px,
-            transparent 72px
-        ),
-
-        radial-gradient(
-            circle at 96% 70%,
-            rgba(230, 55, 32, 0.06) 0 90px,
-            transparent 92px
-        ),
-
-        var(--cream);
-
+    background: var(--cream);
     overflow-x: hidden;
 }
 
@@ -72,81 +44,57 @@ img {
     max-width: 100%;
 }
 
-
-/* =========================================================
-   2. CONTENEDOR GENERAL
-   ========================================================= */
-
 .site-container {
-    width: min(
-        920px,
-        calc(100% - 32px)
-    );
-
+    width: min(1200px, calc(100% - 40px));
     margin-left: auto;
     margin-right: auto;
 }
 
 
-/* =========================================================
-   3. NAVBAR
-   ========================================================= */
+/* ==========================================================
+   2. NAVBAR
+   ========================================================== */
 
 .main-navbar {
-    background: var(--black);
-
-    border-bottom:
-        3px solid var(--yellow);
-
     position: sticky;
-
     top: 0;
-
     z-index: 1000;
+    background: var(--black);
+    border-bottom: 3px solid var(--yellow);
 }
 
 .main-navbar .navbar {
-    padding-top: 8px;
-    padding-bottom: 8px;
+    padding: 10px 0;
 }
 
 .brand-link {
     display: flex;
-
     align-items: center;
-
-    gap: 9px;
-
+    gap: 10px;
     color: white !important;
-
     text-decoration: none;
 }
 
 .brand-logo {
-    width: 40px;
-    height: 40px;
-
+    width: 44px;
+    height: 44px;
     display: grid;
-
     place-items: center;
+    flex-shrink: 0;
 
-    background:
-        linear-gradient(
-            135deg,
-            var(--yellow),
-            var(--orange)
-        );
+    background: linear-gradient(
+        135deg,
+        var(--yellow),
+        var(--orange)
+    );
 
+    border: 2px solid white;
     border-radius: 50%;
 
-    border:
-        2px solid white;
-
-    font-size: 1.4rem;
+    font-size: 1.5rem;
 
     box-shadow:
-        0 3px 10px
-        rgba(255, 189, 0, 0.30);
+        0 3px 10px rgba(255, 189, 0, 0.30);
 }
 
 .brand-text {
@@ -155,208 +103,148 @@ img {
 
 .brand-name {
     display: block;
-
     color: var(--yellow);
-
     font-size: 1rem;
-
     font-weight: 900;
-
     letter-spacing: 0.5px;
 }
 
 .brand-slogan {
     display: block;
-
-    margin-top: 3px;
-
+    margin-top: 4px;
     color: #eeeeee;
-
-    font-size: 0.58rem;
+    font-size: 0.62rem;
 }
 
 .main-navbar .nav-link {
     color: white !important;
-
     font-weight: 700;
-
-    padding:
-        6px 10px !important;
-
-    margin-left: 3px;
-
+    padding: 7px 11px !important;
+    margin-left: 4px;
     border-radius: 7px;
-
     transition: 0.2s;
 }
 
 .main-navbar .nav-link:hover {
     background: var(--yellow);
-
     color: var(--black) !important;
 }
 
 
-/* =========================================================
-   4. FRANJA AMARILLA SUPERIOR
-   ========================================================= */
+/* ==========================================================
+   3. FRANJA PAPI POLLO
+   ========================================================== */
 
 .brand-strip {
-    background:
-        linear-gradient(
-            110deg,
-            var(--yellow),
-            var(--yellow-light)
-        );
+    background: linear-gradient(
+        110deg,
+        var(--yellow),
+        var(--yellow-light)
+    );
 
-    padding:
-        7px
-        0;
-
-    border-bottom:
-        1px solid #d79b00;
+    padding: 9px 0;
+    border-bottom: 1px solid #d79b00;
 }
 
 .brand-strip-content {
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
-    gap: 12px;
-
+    gap: 14px;
     text-align: center;
 }
 
 .brand-strip-icon {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
 }
 
 .brand-strip h1 {
     margin: 0;
-
-    font-size: 1.3rem;
-
+    font-size: 1.35rem;
     font-weight: 900;
 }
 
 .brand-strip p {
-    margin:
-        1px
-        0
-        0;
-
-    font-size: 0.68rem;
+    margin: 2px 0 0;
+    font-size: 0.72rem;
 }
 
 
-/* =========================================================
-   5. CONTENIDO PRINCIPAL
-   ========================================================= */
+/* ==========================================================
+   4. CONTENIDO PRINCIPAL
+   ========================================================== */
 
 main {
-    min-height: 55vh;
-
-    padding:
-        20px
-        0;
+    min-height: 60vh;
+    padding: 30px 0 40px;
 }
 
 
-/* =========================================================
-   6. HERO GENERAL
-   ========================================================= */
+/* ==========================================================
+   5. HERO
+   ========================================================== */
 
 .hero {
     position: relative;
-
     overflow: hidden;
 
-    padding: 23px;
+    padding: 28px;
 
-    background:
-        linear-gradient(
-            120deg,
-            #fffdf8 0%,
-            #fff2c7 100%
-        );
+    background: linear-gradient(
+        120deg,
+        #fffdf8 0%,
+        #fff2c7 100%
+    );
 
-    border:
-        1px solid var(--border);
-
+    border: 1px solid var(--border);
     border-radius: 20px;
-
-    box-shadow:
-        var(--shadow);
+    box-shadow: var(--shadow);
 }
 
 .hero::before {
     content: "🔥";
-
     position: absolute;
-
     right: -16px;
-
     bottom: -45px;
-
     font-size: 9rem;
-
     opacity: 0.04;
-
     transform: rotate(-15deg);
 }
 
 .hero-grid {
     display: grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap: 24px;
-
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
     align-items: center;
 }
 
 .hero-eyebrow {
     display: inline-flex;
-
     align-items: center;
-
     gap: 6px;
 
     margin-bottom: 10px;
-
-    padding:
-        5px
-        11px;
+    padding: 6px 12px;
 
     background: var(--red);
-
     color: white;
 
     border-radius: 999px;
 
-    font-size: 0.67rem;
-
+    font-size: 0.72rem;
     font-weight: 800;
 }
 
 .hero-title {
-    margin:
-        0
-        0
-        12px;
+    margin: 0 0 12px;
 
-    font-size:
-        clamp(
-            1.8rem,
-            3vw,
-            2.7rem
-        );
+    font-size: clamp(
+        1.9rem,
+        3vw,
+        2.8rem
+    );
 
     line-height: 1.04;
-
     font-weight: 900;
 }
 
@@ -365,23 +253,19 @@ main {
 }
 
 .hero-text {
-    max-width: 500px;
-
-    margin-bottom: 16px;
+    max-width: 520px;
+    margin-bottom: 18px;
 
     color: #393939;
 
-    font-size: 0.88rem;
-
+    font-size: 0.95rem;
     line-height: 1.5;
 }
 
 .hero-actions {
     display: flex;
-
     flex-wrap: wrap;
-
-    gap: 9px;
+    gap: 10px;
 }
 
 .hero-image-box {
@@ -390,76 +274,55 @@ main {
 
 .hero-image {
     display: block;
-
     width: 100%;
-
-    max-height: 250px;
-
-    aspect-ratio: 16 / 10;
+    height: 330px;
 
     object-fit: cover;
+    object-position: center;
 
-    border:
-        4px solid white;
-
+    border: 4px solid white;
     border-radius: 17px;
 
     box-shadow:
-        0 12px 25px
-        rgba(0, 0, 0, 0.18);
+        0 12px 25px rgba(0, 0, 0, 0.18);
 }
 
 .hero-badge {
     position: absolute;
+    right: 12px;
+    bottom: 12px;
 
-    right: 10px;
-
-    bottom: 10px;
-
-    padding:
-        7px
-        10px;
+    padding: 8px 11px;
 
     background: var(--black);
-
     color: white;
 
-    border:
-        2px solid var(--yellow);
-
+    border: 2px solid var(--yellow);
     border-radius: 10px;
 
-    font-size: 0.72rem;
-
+    font-size: 0.75rem;
     font-weight: 800;
 }
 
 
-/* =========================================================
-   7. BOTONES
-   ========================================================= */
+/* ==========================================================
+   6. BOTONES
+   ========================================================== */
 
 .pp-btn {
     display: inline-flex;
-
     align-items: center;
-
     justify-content: center;
-
     gap: 6px;
 
-    min-height: 36px;
+    min-height: 38px;
 
-    padding:
-        8px
-        14px;
+    padding: 9px 15px;
 
     border: none;
-
     border-radius: 8px;
 
-    font-size: 0.8rem;
-
+    font-size: 0.85rem;
     font-weight: 800;
 
     text-decoration: none;
@@ -468,57 +331,47 @@ main {
 }
 
 .pp-btn:hover {
-    transform:
-        translateY(-2px);
+    transform: translateY(-2px);
 }
 
 .pp-btn-yellow {
     background: var(--yellow);
-
     color: var(--black);
 }
 
 .pp-btn-yellow:hover {
     background: var(--orange);
-
     color: var(--black);
 }
 
 .pp-btn-dark {
     background: var(--black);
-
     color: white;
 }
 
 .pp-btn-dark:hover {
     background: var(--red);
-
     color: white;
 }
 
 
-/* =========================================================
-   8. TÍTULOS DE SECCIÓN
-   ========================================================= */
+/* ==========================================================
+   7. TÍTULOS DE SECCIÓN
+   ========================================================== */
 
 .section-heading {
-    margin:
-        26px
-        auto
-        16px;
-
+    margin: 30px auto 18px;
     text-align: center;
 }
 
 .section-heading h2 {
-    margin-bottom: 4px;
+    margin-bottom: 5px;
 
-    font-size:
-        clamp(
-            1.4rem,
-            2.5vw,
-            1.9rem
-        );
+    font-size: clamp(
+        1.5rem,
+        2.5vw,
+        2rem
+    );
 
     font-weight: 900;
 }
@@ -529,72 +382,55 @@ main {
 
 .section-heading p {
     margin: 0;
-
     color: var(--gray);
-
-    font-size: 0.78rem;
+    font-size: 0.85rem;
 }
 
 
-/* =========================================================
-   9. SECCIÓN OSCURA DE BENEFICIOS
-   ========================================================= */
+/* ==========================================================
+   8. BENEFICIOS
+   ========================================================== */
 
 .features-section {
-    padding: 23px;
+    padding: 26px;
 
-    background:
-        linear-gradient(
-            135deg,
-            #151515,
-            #252525
-        );
+    background: linear-gradient(
+        135deg,
+        #151515,
+        #252525
+    );
 
     border-radius: 20px;
-
-    box-shadow:
-        var(--shadow);
+    box-shadow: var(--shadow);
 }
 
 .features-section .section-heading {
     margin-top: 0;
 }
 
-.features-section
-.section-heading h2,
-
-.features-section
-.section-heading p {
+.features-section .section-heading h2,
+.features-section .section-heading p {
     color: white;
 }
 
 .feature-grid {
     display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 14px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
 }
 
 .feature-card {
-    padding:
-        18px
-        15px;
+    padding: 20px 16px;
 
-    background:
-        linear-gradient(
-            145deg,
-            #252525,
-            #171717
-        );
+    background: linear-gradient(
+        145deg,
+        #252525,
+        #171717
+    );
 
     color: white;
 
-    border:
-        1px solid
-        rgba(255, 189, 0, 0.45);
-
+    border: 1px solid rgba(255, 189, 0, 0.45);
     border-radius: 15px;
 
     text-align: center;
@@ -603,154 +439,118 @@ main {
 }
 
 .feature-card:hover {
-    transform:
-        translateY(-4px);
-
-    border-color:
-        var(--yellow);
+    transform: translateY(-4px);
+    border-color: var(--yellow);
 }
 
 .feature-logo {
-    width: 48px;
-    height: 48px;
+    width: 50px;
+    height: 50px;
 
     display: grid;
-
     place-items: center;
 
-    margin:
-        0 auto 10px;
+    margin: 0 auto 10px;
 
-    background:
-        linear-gradient(
-            135deg,
-            var(--yellow),
-            var(--orange)
-        );
+    background: linear-gradient(
+        135deg,
+        var(--yellow),
+        var(--orange)
+    );
 
-    border:
-        2px solid white;
-
+    border: 2px solid white;
     border-radius: 50%;
 
-    font-size: 1.3rem;
+    font-size: 1.4rem;
 }
 
 .feature-card h3 {
     margin-bottom: 5px;
-
-    font-size: 0.95rem;
-
+    font-size: 1rem;
     font-weight: 800;
 }
 
 .feature-card p {
     margin: 0;
-
     color: #dddddd;
-
-    font-size: 0.72rem;
+    font-size: 0.78rem;
 }
 
 
-/* =========================================================
-   10. CTA ROJO
-   ========================================================= */
+/* ==========================================================
+   9. CTA
+   ========================================================== */
 
 .cta-panel {
     position: relative;
-
     overflow: hidden;
 
-    margin-top: 18px;
+    margin-top: 20px;
+    padding: 22px;
 
-    padding: 20px;
-
-    background:
-        linear-gradient(
-            120deg,
-            var(--red-dark),
-            var(--red),
-            var(--orange)
-        );
+    background: linear-gradient(
+        120deg,
+        var(--red-dark),
+        var(--red),
+        var(--orange)
+    );
 
     color: white;
 
     border-radius: 18px;
-
-    box-shadow:
-        var(--shadow);
+    box-shadow: var(--shadow);
 }
 
 .cta-panel::after {
     content: "🔥";
-
     position: absolute;
-
     right: 18px;
-
     bottom: -25px;
-
     font-size: 6rem;
-
     opacity: 0.14;
 }
 
 .cta-content {
     position: relative;
-
     z-index: 2;
 
     display: flex;
-
     align-items: center;
-
-    justify-content:
-        space-between;
+    justify-content: space-between;
 
     gap: 16px;
 }
 
 .cta-panel h2 {
     margin-bottom: 3px;
-
-    font-size:
-        clamp(
-            1.2rem,
-            2vw,
-            1.55rem
-        );
-
+    font-size: 1.55rem;
     font-weight: 900;
 }
 
 .cta-panel p {
     margin: 0;
-
-    font-size: 0.78rem;
+    font-size: 0.85rem;
 }
 
 
-/* =========================================================
-   11. MENÚ
-   ========================================================= */
+/* ==========================================================
+   10. MENÚ DE PRODUCTOS
+   DISEÑO TIPO CARTA / CATÁLOGO
+   ========================================================== */
 
 .menu-header {
-    margin-bottom: 20px;
-
+    margin-bottom: 28px;
     text-align: center;
 }
 
+.menu-header .hero-eyebrow {
+    margin-bottom: 8px;
+}
+
 .menu-header h2 {
-    margin-bottom: 4px;
+    margin: 0 0 6px;
 
-    font-size:
-        clamp(
-            1.55rem,
-            2.5vw,
-            2rem
-        );
-
+    font-size: 2rem;
     font-weight: 900;
 }
 
@@ -759,214 +559,241 @@ main {
 
     color: var(--gray);
 
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 }
+
+
+/* ==========================================================
+   GRILLA DE PRODUCTOS
+
+   PC GRANDE: 4 productos
+   Notebook: 3 productos
+   Tablet: 2 productos
+   Celular: 2 productos
+   ========================================================== */
 
 .product-grid {
     display: grid;
 
     grid-template-columns:
-        repeat(
-            2,
-            minmax(0, 1fr)
-        );
+        repeat(4, minmax(0, 1fr));
 
-    gap: 15px;
+    gap: 22px;
+
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
 }
 
+
+/* ==========================================================
+   TARJETA DE PRODUCTO
+   ========================================================== */
+
 .product-card {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
     overflow: hidden;
 
-    background: white;
+    background: var(--white);
 
-    border:
-        1px solid var(--border);
+    border: 1px solid #e8e8e8;
+    border-bottom: 4px solid var(--yellow);
 
-    border-bottom:
-        4px solid var(--yellow);
-
-    border-radius: 15px;
+    border-radius: 14px;
 
     box-shadow:
-        var(--shadow);
+        0 5px 16px rgba(0, 0, 0, 0.08);
 
-    transition: 0.2s;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 .product-card:hover {
-    transform:
-        translateY(-4px);
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 24px rgba(0, 0, 0, 0.14);
 }
+
+
+/* ==========================================================
+   IMAGEN DEL PRODUCTO
+
+   contain:
+   muestra el producto COMPLETO.
+   No corta pollo, botella, papas, etc.
+   ========================================================== */
 
 .product-image {
     display: block;
 
     width: 100%;
+    height: 210px;
 
-    max-height: 190px;
+    padding: 12px;
 
-    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    object-position: center center;
 
-    object-fit: cover;
+    background: #ffffff;
+
+    border: 0;
 }
 
+
+/* ==========================================================
+   INFORMACIÓN DEL PRODUCTO
+   ========================================================== */
+
 .product-body {
-    padding: 13px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    padding: 13px 14px 15px;
+
+    border-top: 1px solid #eeeeee;
 }
 
 .product-body h3 {
-    margin-bottom: 5px;
+    margin: 0 0 6px;
+
+    color: var(--black);
 
     font-size: 1rem;
+    line-height: 1.25;
 
-    font-weight: 800;
+    font-weight: 900;
 }
 
 .product-description {
-    margin-bottom: 8px;
+    margin: 0 0 12px;
 
     color: var(--gray);
 
-    font-size: 0.72rem;
+    font-size: 0.78rem;
+    line-height: 1.45;
 }
 
 .product-footer {
     display: flex;
-
     align-items: center;
-
-    justify-content:
-        space-between;
+    justify-content: space-between;
 
     gap: 8px;
+
+    margin-top: auto;
 }
 
 .product-price {
-    font-size: 0.9rem;
+    color: var(--black);
 
+    font-size: 1rem;
     font-weight: 900;
 }
 
 .status-open {
     display: inline-block;
 
-    padding:
-        4px
-        8px;
+    padding: 5px 8px;
 
     background: var(--green);
-
     color: white;
 
     border-radius: 999px;
 
-    font-size: 0.62rem;
-
+    font-size: 0.65rem;
     font-weight: 800;
+
+    white-space: nowrap;
 }
 
 
-/* =========================================================
-   12. TARJETAS INFORMATIVAS SUCURSALES
-   ========================================================= */
+/* ==========================================================
+   11. SUCURSALES
+   ========================================================== */
 
 .visit-card-grid {
     display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 14px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
 }
 
 .visit-card {
-    padding: 18px;
+    padding: 20px;
 
     background: white;
 
-    border:
-        1px solid var(--border);
-
+    border: 1px solid var(--border);
     border-radius: 15px;
 
     text-align: center;
 
     box-shadow:
-        0 7px 18px
-        rgba(0, 0, 0, 0.07);
+        0 7px 18px rgba(0, 0, 0, 0.07);
 }
 
 .visit-logo {
-    width: 46px;
-    height: 46px;
+    width: 48px;
+    height: 48px;
 
     display: grid;
-
     place-items: center;
 
-    margin:
-        0 auto 9px;
+    margin: 0 auto 9px;
 
-    background:
-        linear-gradient(
-            135deg,
-            var(--yellow),
-            var(--yellow-light)
-        );
+    background: linear-gradient(
+        135deg,
+        var(--yellow),
+        var(--yellow-light)
+    );
 
     border-radius: 13px;
 
-    font-size: 1.25rem;
+    font-size: 1.3rem;
 }
 
 .visit-card h3 {
     margin-bottom: 4px;
-
-    font-size: 0.94rem;
-
+    font-size: 1rem;
     font-weight: 800;
 }
 
 .visit-card p {
     margin: 0;
-
     color: var(--gray);
-
-    font-size: 0.71rem;
+    font-size: 0.78rem;
 }
 
 
-/* =========================================================
-   13. TÍTULO LOCALES
-   ========================================================= */
+/* ==========================================================
+   12. TÍTULO LOCALES
+   ========================================================== */
 
 .locations-title {
     position: relative;
-
     overflow: hidden;
 
-    margin-bottom: 15px;
+    margin-bottom: 18px;
+    padding: 20px 16px;
 
-    padding:
-        18px
-        16px;
+    background: linear-gradient(
+        115deg,
+        var(--yellow),
+        var(--yellow-light)
+    );
 
-    background:
-        linear-gradient(
-            115deg,
-            var(--yellow),
-            var(--yellow-light)
-        );
-
-    border-bottom:
-        4px solid var(--orange);
-
+    border-bottom: 4px solid var(--orange);
     border-radius: 18px;
 
     text-align: center;
 
-    box-shadow:
-        var(--shadow);
+    box-shadow: var(--shadow);
 }
 
 .locations-title::before {
@@ -975,7 +802,6 @@ main {
     position: absolute;
 
     left: 18px;
-
     top: -8px;
 
     font-size: 4.8rem;
@@ -989,7 +815,6 @@ main {
     position: absolute;
 
     right: 20px;
-
     bottom: -25px;
 
     font-size: 5rem;
@@ -999,68 +824,53 @@ main {
 
 .locations-title h2 {
     position: relative;
-
     z-index: 2;
 
     margin-bottom: 3px;
 
-    font-size:
-        clamp(
-            1.5rem,
-            2.5vw,
-            2rem
-        );
-
+    font-size: 2rem;
     font-weight: 900;
 }
 
 .locations-title p {
     position: relative;
-
     z-index: 2;
 
     margin: 0;
 
-    font-size: 0.76rem;
+    font-size: 0.8rem;
 }
 
 
-/* =========================================================
-   14. IMAGEN PRINCIPAL DEL LOCAL
-   ========================================================= */
+/* ==========================================================
+   13. IMAGEN DEL LOCAL
+   ========================================================== */
 
 .store-card {
     width: 100%;
-
     overflow: hidden;
 
-    margin-bottom: 15px;
+    margin-bottom: 18px;
 
-    background:
-        var(--black);
+    background: var(--black);
 
     border-radius: 18px;
 
-    box-shadow:
-        var(--shadow);
+    box-shadow: var(--shadow);
 }
 
 .store-image {
     display: block;
 
     width: 100%;
-
-    max-height: 260px;
-
-    aspect-ratio: 16 / 6;
+    height: 350px;
 
     object-fit: cover;
+    object-position: center;
 }
 
 .store-info {
-    padding:
-        11px
-        15px;
+    padding: 13px 16px;
 
     color: white;
 
@@ -1070,108 +880,91 @@ main {
 .store-info h3 {
     margin: 0;
 
-    font-size: 1.05rem;
-
+    font-size: 1.1rem;
     font-weight: 900;
 }
 
 .store-info p {
-    margin:
-        2px
-        0
-        0;
+    margin: 3px 0 0;
 
     color: #eeeeee;
 
-    font-size: 0.68rem;
+    font-size: 0.75rem;
 }
 
 
-/* =========================================================
-   15. TARJETAS DE LOCALES
-   ========================================================= */
+/* ==========================================================
+   14. TARJETAS DE LOCALES
+   ========================================================== */
 
 .branches-grid {
     display: grid;
 
     grid-template-columns:
-        repeat(
-            2,
-            minmax(0, 1fr)
-        );
+        repeat(2, minmax(0, 1fr));
 
-    gap: 14px;
+    gap: 16px;
 }
 
 .branch-card {
-    padding: 16px;
+    padding: 18px;
 
     background: white;
 
-    border:
-        1px solid var(--border);
-
-    border-bottom:
-        4px solid var(--yellow);
+    border: 1px solid var(--border);
+    border-bottom: 4px solid var(--yellow);
 
     border-radius: 15px;
 
-    box-shadow:
-        var(--shadow);
+    box-shadow: var(--shadow);
 
     transition: 0.2s;
 }
 
 .branch-card:hover {
-    transform:
-        translateY(-4px);
+    transform: translateY(-4px);
 }
 
 .branch-head {
     display: flex;
-
     align-items: center;
 
-    gap: 9px;
+    gap: 10px;
 
-    margin-bottom: 11px;
+    margin-bottom: 12px;
 }
 
 .branch-logo {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
 
-    flex:
-        0 0 40px;
+    flex: 0 0 42px;
 
     display: grid;
-
     place-items: center;
 
-    background:
-        linear-gradient(
-            135deg,
-            var(--yellow),
-            var(--orange)
-        );
+    background: linear-gradient(
+        135deg,
+        var(--yellow),
+        var(--orange)
+    );
 
     border-radius: 11px;
 
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 
 .branch-head h3 {
     margin: 0;
 
-    font-size: 0.98rem;
-
+    font-size: 1rem;
     font-weight: 900;
 }
 
 .branch-head small {
     color: var(--gray);
 
-    font-size: 0.64rem;
+    font-size: 0.68rem;
 }
 
 .branch-row {
@@ -1179,125 +972,100 @@ main {
 
     gap: 6px;
 
-    margin-bottom: 6px;
+    margin-bottom: 7px;
 
-    font-size: 0.73rem;
+    font-size: 0.78rem;
 }
 
 .services-title {
-    margin:
-        11px
-        0
-        6px;
+    margin: 12px 0 7px;
 
-    padding-top: 10px;
+    padding-top: 11px;
 
-    border-top:
-        1px dashed #cccccc;
+    border-top: 1px dashed #cccccc;
 
-    font-size: 0.85rem;
-
+    font-size: 0.9rem;
     font-weight: 900;
 }
 
 .service-item {
     display: flex;
-
     align-items: center;
+    justify-content: space-between;
 
-    justify-content:
-        space-between;
+    margin-top: 5px;
 
-    margin-top: 4px;
-
-    padding:
-        6px
-        8px;
+    padding: 7px 9px;
 
     background: #fafafa;
 
-    border:
-        1px solid #eeeeee;
-
+    border: 1px solid #eeeeee;
     border-radius: 7px;
 
-    font-size: 0.7rem;
+    font-size: 0.75rem;
 }
 
 
-/* =========================================================
-   16. FOOTER
-   ========================================================= */
+/* ==========================================================
+   15. FOOTER
+   ========================================================== */
 
 .site-footer {
-    margin-top: 22px;
+    margin-top: 25px;
 
-    padding:
-        22px
-        0
-        12px;
+    padding: 25px 0 14px;
 
-    background:
-        linear-gradient(
-            135deg,
-            #090909,
-            #191919
-        );
+    background: linear-gradient(
+        135deg,
+        #090909,
+        #191919
+    );
 
     color: white;
 
-    border-top:
-        4px solid var(--yellow);
+    border-top: 4px solid var(--yellow);
 }
 
 .footer-grid {
     display: grid;
 
     grid-template-columns:
-        1.2fr
-        1fr
-        1fr;
+        1.2fr 1fr 1fr;
 
-    gap: 18px;
+    gap: 22px;
 }
 
 .footer-brand {
     display: flex;
-
     align-items: center;
 
-    gap: 9px;
+    gap: 10px;
 
     margin-bottom: 8px;
 }
 
 .footer-logo {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
 
     display: grid;
-
     place-items: center;
 
-    background:
-        var(--yellow);
-
-    color:
-        var(--black);
+    background: var(--yellow);
+    color: var(--black);
 
     border-radius: 50%;
 
-    font-size: 1.3rem;
+    font-size: 1.4rem;
 }
 
 .site-footer h3,
 .site-footer h4 {
-    margin-bottom: 6px;
+    margin-bottom: 7px;
 
     color: var(--yellow);
 
-    font-size: 0.92rem;
-
+    font-size: 1rem;
     font-weight: 900;
 }
 
@@ -1305,7 +1073,7 @@ main {
 .site-footer a {
     color: #eeeeee;
 
-    font-size: 0.68rem;
+    font-size: 0.75rem;
 }
 
 .site-footer a {
@@ -1318,194 +1086,220 @@ main {
 
 .footer-links {
     margin: 0;
-
     padding: 0;
 
     list-style: none;
 }
 
 .footer-links li {
-    margin-bottom: 4px;
+    margin-bottom: 5px;
 }
 
 .footer-bottom {
-    margin-top: 14px;
+    margin-top: 16px;
+    padding-top: 11px;
 
-    padding-top: 10px;
-
-    border-top:
-        1px solid #393939;
+    border-top: 1px solid #393939;
 
     color: #cccccc;
 
     text-align: center;
 
-    font-size: 0.65rem;
+    font-size: 0.7rem;
 }
 
 
-/* =========================================================
-   17. NOTEBOOK 1366px
-   ========================================================= */
+/* ==========================================================
+   16. NOTEBOOK
+   3 PRODUCTOS POR FILA
+   ========================================================== */
 
-@media (max-width: 1366px) {
+@media (max-width: 1100px) {
 
     .site-container {
-        width: min(
-            860px,
-            calc(100% - 28px)
-        );
+        width: calc(100% - 30px);
     }
 
-    .hero-image {
-        max-height: 230px;
+    .product-grid {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+
+        gap: 18px;
     }
 
     .product-image {
-        max-height: 175px;
-    }
-
-    .store-image {
-        max-height: 240px;
+        height: 200px;
     }
 }
 
 
-/* =========================================================
-   18. TABLET
-   ========================================================= */
+/* ==========================================================
+   17. TABLET
+   2 PRODUCTOS POR FILA
+   ========================================================== */
 
-@media (max-width: 992px) {
-
-    .site-container {
-        width:
-            min(
-                92%,
-                820px
-            );
-    }
+@media (max-width: 850px) {
 
     .hero-grid {
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
     }
 
     .hero-image-box {
-        max-width: 580px;
+        max-width: 650px;
 
         margin-left: auto;
-
         margin-right: auto;
     }
 
-    .feature-grid,
-    .visit-card-grid {
-        grid-template-columns:
-            repeat(3, 1fr);
+    .feature-grid {
+        grid-template-columns: 1fr;
     }
 
-    .store-image {
-        aspect-ratio:
-            16 / 8;
+    .product-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 16px;
+    }
+
+    .product-image {
+        height: 210px;
     }
 }
 
 
-/* =========================================================
-   19. CELULAR
-   ========================================================= */
+/* ==========================================================
+   18. CELULAR
+   2 PRODUCTOS POR FILA
+   ========================================================== */
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
 
     html {
-        font-size: 14px;
+        font-size: 15px;
     }
 
     .site-container {
-        width:
-            calc(
-                100% - 24px
-            );
+        width: calc(100% - 20px);
     }
 
     main {
-        padding:
-            16px
-            0;
+        padding: 18px 0 25px;
     }
 
     .brand-strip-icon {
         display: none;
     }
 
-    .hero {
-        padding:
-            19px
-            15px;
+    .brand-strip h1 {
+        font-size: 1.15rem;
+    }
 
-        border-radius:
-            16px;
+    .brand-strip p {
+        font-size: 0.68rem;
+    }
+
+    .hero {
+        padding: 18px 14px;
+        border-radius: 15px;
     }
 
     .hero-title {
-        font-size:
-            1.8rem;
+        font-size: 1.7rem;
     }
 
     .hero-image {
-        max-height:
-            none;
-
-        aspect-ratio:
-            16 / 10;
+        height: 260px;
     }
 
-    .feature-grid,
-    .visit-card-grid,
-    .branches-grid,
-    .product-grid,
-    .footer-grid {
+    .product-grid {
         grid-template-columns:
-            1fr;
+            repeat(2, minmax(0, 1fr));
+
+        gap: 10px;
     }
 
-    .cta-content {
-        flex-direction:
-            column;
-
-        align-items:
-            flex-start;
-    }
-
-    .store-image {
-        max-height: none;
-
-        aspect-ratio:
-            16 / 9;
+    .product-card {
+        border-radius: 10px;
     }
 
     .product-image {
-        max-height: none;
+        height: 150px;
 
-        aspect-ratio:
-            16 / 9;
+        padding: 7px;
+
+        object-fit: contain;
+        object-position: center;
+    }
+
+    .product-body {
+        padding: 10px;
+    }
+
+    .product-body h3 {
+        margin-bottom: 5px;
+
+        font-size: 0.88rem;
+    }
+
+    .product-description {
+        margin-bottom: 9px;
+
+        font-size: 0.68rem;
+        line-height: 1.35;
+    }
+
+    .product-footer {
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 6px;
+    }
+
+    .product-price {
+        font-size: 0.9rem;
+    }
+
+    .status-open {
+        padding: 4px 7px;
+
+        font-size: 0.58rem;
+    }
+
+    .visit-card-grid,
+    .branches-grid,
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .store-image {
+        height: 270px;
     }
 }
 
 
-/* =========================================================
-   20. CELULAR PEQUEÑO
-   ========================================================= */
+/* ==========================================================
+   19. CELULAR MUY PEQUEÑO
+   ========================================================== */
 
-@media (max-width: 480px) {
+@media (max-width: 380px) {
+
+    .site-container {
+        width: calc(100% - 16px);
+    }
 
     .brand-slogan {
         display: none;
     }
 
     .brand-logo {
-        width: 36px;
-        height: 36px;
+        width: 38px;
+        height: 38px;
 
         font-size: 1.2rem;
     }
@@ -1514,17 +1308,20 @@ main {
         font-size: 0.9rem;
     }
 
-    .hero-actions {
-        flex-direction:
-            column;
+    .product-grid {
+        gap: 8px;
     }
 
-    .pp-btn {
-        width: 100%;
+    .product-image {
+        height: 135px;
+        padding: 6px;
     }
 
-    .locations-title::before,
-    .locations-title::after {
-        opacity: 0.05;
+    .product-body {
+        padding: 8px;
+    }
+
+    .product-description {
+        font-size: 0.64rem;
     }
 }
