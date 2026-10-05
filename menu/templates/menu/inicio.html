@@ -1,182 +1,55 @@
 {% extends 'base.html' %}
 {% load static %}
-
-{% block title %}Inicio - Papi Pollo{% endblock %}
-
+{% block title %}Papi Pollo - Inicio{% endblock %}
+{% block body_class %}public-page home-page{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/inicio.css' %}">{% endblock %}
+{% block brand_strip %}{% endblock %}
 {% block content %}
-
-
-<section class="hero">
-
-    <div class="hero-grid">
-
-        <div>
-
-            <span class="hero-eyebrow">
-                🔥 ¡Sabor que se disfruta!
-            </span>
-
-            <h2 class="hero-title">
-
-                Bienvenidos a
-
-                <span>
-                    Papi Pollo
-                </span>
-
-            </h2>
-
-            <p class="hero-text">
-
-                Pollo asado, papas fritas y combos
-                preparados con sabor, calidad y tradición.
-
-            </p>
-
-            <div class="hero-actions">
-
-                <a
-                    href="{% url 'productos' %}"
-                    class="pp-btn pp-btn-yellow"
-                >
-                    🍴 Ver nuestro menú
-                </a>
-
-                <a
-                    href="{% url 'listado_sucursales' %}"
-                    class="pp-btn pp-btn-dark"
-                >
-                    📍 Ver sucursales
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <div class="hero-image-box">
-
-            <img
-                src="{% static 'img/menu/pollo_entero.jpg' %}"
-                alt="Pollo asado Papi Pollo"
-                class="hero-image"
-            >
-
-            <div class="hero-badge">
-                🔥 Recién asado
-            </div>
-
-        </div>
-
-    </div>
-
+<section class="home-hero" aria-label="Papi Pollo, auténtico sazón peruano">
+    <img src="{% static 'img/sucursales/papi-pollo-lateral.jpeg' %}"
+         alt="Papi Pollo, pollo asado con auténtico sazón peruano. WhatsApp +56 9 4429 9541 e Instagram @papipollo.chile."
+         width="1600" height="800" fetchpriority="high">
 </section>
-
-
-<section class="features-section mt-4">
-
-    <div class="section-heading">
-
-        <h2>
-            ¿Por qué elegir
-            <span>Papi Pollo?</span>
-        </h2>
-
-        <p>
-            Porque queremos entregarte sabor
-            y una buena experiencia.
-        </p>
-
-    </div>
-
-
-    <div class="feature-grid">
-
-        <article class="feature-card">
-
-            <div class="feature-logo">
-                🍗
-            </div>
-
-            <h3>
-                Pollo fresco
-            </h3>
-
-            <p>
-                Preparado cuidadosamente para
-                lograr un producto sabroso y de calidad.
-            </p>
-
-        </article>
-
-
-        <article class="feature-card">
-
-            <div class="feature-logo">
-                🔥
-            </div>
-
-            <h3>
-                Sabor único
-            </h3>
-
-            <p>
-                Nuestro pollo combina sazón,
-                tradición y un sabor especial.
-            </p>
-
-        </article>
-
-
-        <article class="feature-card">
-
-            <div class="feature-logo">
-                ❤️
-            </div>
-
-            <h3>
-                Atención de primera
-            </h3>
-
-            <p>
-                Una experiencia rápida,
-                cómoda y agradable.
-            </p>
-
-        </article>
-
-    </div>
-
-</section>
-
-
-<section class="cta-panel">
-
-    <div class="cta-content">
-
-        <div>
-
-            <h2>
-                ¿Listo para probar Papi Pollo?
-            </h2>
-
-            <p>
-                Revisa nuestros productos disponibles.
-            </p>
-
+{% include 'includes/brand_strip.html' %}
+<section class="home-selection">
+    <div class="site-container">
+        <div class="commercial-heading">
+            <div><p class="eyebrow">POLLO ASADO · SAZÓN PERUANO</p><h1>Elige tu próximo antojo</h1></div>
+            <a href="{% url 'productos' %}" class="pp-btn pp-btn-red">Ver menú completo <span aria-hidden="true">→</span></a>
         </div>
-
-
-        <a
-            href="{% url 'productos' %}"
-            class="pp-btn pp-btn-yellow"
-        >
-            Ver menú →
-        </a>
-
+        <div class="product-grid">
+            {% for producto in productos_destacados %}
+                {% include 'includes/product_card.html' %}
+            {% empty %}
+                <p>Pronto tendremos productos disponibles. Consulta nuestro menú.</p>
+            {% endfor %}
+        </div>
     </div>
-
 </section>
-
-
+<section class="home-quick">
+    <div class="site-container">
+        <div class="commercial-heading"><div><p class="eyebrow">COMIDA AL PASO Y MÁS</p><h2>¿Qué se te antoja hoy?</h2></div></div>
+        <nav class="quick-links" aria-label="Acciones rápidas">
+            <a href="{% url 'productos' %}"><span>Ver menú</span><span aria-hidden="true">→</span></a>
+            <a href="{% url 'inicio_sucursales' %}"><span>Ver sucursales</span><span aria-hidden="true">→</span></a>
+            <a href="https://wa.me/56944299541"><span>Pedir por WhatsApp</span><span aria-hidden="true">↗</span></a>
+            <a href="https://www.instagram.com/papipollo.chile/"><span>Instagram</span><span aria-hidden="true">↗</span></a>
+        </nav>
+    </div>
+</section>
+<section class="home-locations">
+    <div class="site-container">
+        <div class="commercial-heading">
+            <div><p class="eyebrow">TE ESPERAMOS EN PAPI POLLO</p><h2>Encuéntranos aquí</h2></div>
+            <a href="{% url 'inicio_sucursales' %}" class="text-link">Todas las sucursales <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="branches-grid">
+            {% for sucursal in sucursales %}
+                {% include 'includes/branch_card.html' %}
+            {% empty %}
+                <p>No hay sucursales disponibles.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 {% endblock %}

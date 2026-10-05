@@ -1,97 +1,16 @@
 {% extends 'base.html' %}
-{% load static %}
-
 {% block title %}Menú - Papi Pollo{% endblock %}
-
+{% block body_class %}public-page menu-page{% endblock %}
 {% block content %}
-
-<section class="menu-header">
-
-    <span class="hero-eyebrow">
-        🍗 Nuestro sabor
-    </span>
-
-    <h2>
-        Nuestro Menú
-    </h2>
-
-    <p>
-        Conoce los productos disponibles de Papi Pollo.
-    </p>
-
-</section>
-
-
-<section class="product-grid">
-
+<header class="commercial-heading">
+    <div><p class="eyebrow">EL SABOR DE PAPI POLLO</p><h1>Nuestro menú</h1><p>Pollo asado, sazón peruano y mucho más para elegir.</p></div>
+    <a href="https://wa.me/56944299541" class="pp-btn pp-btn-red">Pedir por WhatsApp <span aria-hidden="true">↗</span></a>
+</header>
+<section class="product-grid" aria-label="Productos disponibles">
     {% for producto in productos %}
-
-        <article class="product-card">
-
-            {% if producto.imagen %}
-
-                <img
-                    src="{{ producto.imagen.url }}"
-                    alt="{{ producto.nombre }}"
-                    class="product-image"
-                >
-
-            {% else %}
-
-                <div class="product-no-image">
-                    <span>🍗</span>
-                    <p>Imagen próximamente</p>
-                </div>
-
-            {% endif %}
-
-
-            <div class="product-body">
-
-                <h3>
-                    {{ producto.nombre }}
-                </h3>
-
-                <p class="product-description">
-                    {{ producto.descripcion }}
-                </p>
-
-
-                <div class="product-footer">
-
-                    <span class="product-price">
-                        ${{ producto.precio }}
-                    </span>
-
-
-                    {% if producto.disponible %}
-
-                        <span class="status-open">
-                            ✓ Disponible
-                        </span>
-
-                    {% else %}
-
-                        <span class="badge bg-danger">
-                            No disponible
-                        </span>
-
-                    {% endif %}
-
-                </div>
-
-            </div>
-
-        </article>
-
+        {% include 'includes/product_card.html' %}
     {% empty %}
-
-        <p>
-            No hay productos disponibles.
-        </p>
-
+        <p>No hay productos disponibles.</p>
     {% endfor %}
-
 </section>
-
 {% endblock %}

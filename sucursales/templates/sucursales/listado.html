@@ -1,183 +1,21 @@
 {% extends 'base.html' %}
 {% load static %}
-
-{% block title %}Locales - Papi Pollo{% endblock %}
-
+{% block title %}Sucursales - Papi Pollo{% endblock %}
+{% block body_class %}public-page locations-page{% endblock %}
 {% block content %}
-
-<section class="locations-title">
-
-    <h2>Nuestras Sucursales</h2>
-
-    <p>
-        Revisa nuestros locales,
-        horarios y datos de contacto.
-    </p>
-
-</section>
-
-
-<section class="store-card">
-
-    <img
-        src="{% static 'img/sucursales/papi_pollo.png' %}"
-        alt="Local Papi Pollo"
-        class="store-image"
-    >
-
-    <div class="store-info">
-
-        <h3>🐔 Papi Pollo</h3>
-
-        <p>
-            Sabor, calidad y tradición.
-        </p>
-
-    </div>
-
-</section>
-
-
-<section class="branches-grid">
-
+<header class="commercial-heading">
+    <div><p class="eyebrow">TE ESPERAMOS</p><h1>Nuestras sucursales</h1><p>Dirección, horarios y contacto. Nos vemos en Papi Pollo.</p></div>
+    <a href="{% url 'productos' %}" class="pp-btn pp-btn-red">Ver menú <span aria-hidden="true">→</span></a>
+</header>
+<picture class="branch-brand">
+    <source media="(max-width: 600px)" srcset="{% static 'img/sucursales/papi-pollo-lateral.jpeg' %}" width="1600" height="800">
+    <img src="{% static 'img/sucursales/papi-pollo-frontis.jpeg' %}" alt="Papi Pollo, pollo asado con auténtico sazón peruano" width="1600" height="400" class="branch-brand-image">
+</picture>
+<section class="branches-grid" aria-label="Sucursales disponibles">
     {% for sucursal in sucursales %}
-
-        <article class="branch-card">
-
-            <div class="branch-head">
-
-                <div class="branch-logo">
-                    🏪
-                </div>
-
-                <div>
-
-                    <h3>
-                        {{ sucursal.nombre }}
-                    </h3>
-
-                    <small>
-                        Local Papi Pollo
-                    </small>
-
-                </div>
-
-            </div>
-
-
-            <div class="branch-row">
-
-                <span>📍</span>
-
-                <div>
-                    <strong>Dirección:</strong>
-                    {{ sucursal.direccion }}
-                </div>
-
-            </div>
-
-
-            <div class="branch-row">
-
-                <span>🏙️</span>
-
-                <div>
-                    <strong>Comuna:</strong>
-                    {{ sucursal.comuna }}
-                </div>
-
-            </div>
-
-
-            <div class="branch-row">
-
-                <span>📞</span>
-
-                <div>
-                    <strong>Teléfono:</strong>
-
-                    {% if sucursal.telefono %}
-                        {{ sucursal.telefono }}
-                    {% else %}
-                        No informado
-                    {% endif %}
-
-                </div>
-
-            </div>
-
-
-            <div class="branch-row">
-
-                <span>🕒</span>
-
-                <div>
-                    <strong>Horario:</strong>
-
-                    {% if sucursal.horario %}
-                        {{ sucursal.horario }}
-                    {% else %}
-                        Horario no informado
-                    {% endif %}
-
-                </div>
-
-            </div>
-
-
-            {% if sucursal.activa %}
-
-                <span class="status-open">
-                    ✓ Sucursal activa
-                </span>
-
-            {% else %}
-
-                <span class="badge bg-danger">
-                    Sucursal no disponible
-                </span>
-
-            {% endif %}
-
-        </article>
-
+        {% include 'includes/branch_card.html' %}
     {% empty %}
-
-        <div class="alert alert-warning">
-            No hay sucursales disponibles.
-        </div>
-
+        <p>No hay sucursales disponibles.</p>
     {% endfor %}
-
 </section>
-
-
-<section class="cta-panel">
-
-    <div class="cta-content">
-
-        <div>
-
-            <h2>
-                ¿Ya elegiste tu sucursal?
-            </h2>
-
-            <p>
-                Ahora revisa nuestro menú Papi Pollo.
-            </p>
-
-        </div>
-
-
-        <a
-            href="{% url 'productos' %}"
-            class="pp-btn pp-btn-yellow"
-        >
-            🍗 Ver menú
-        </a>
-
-    </div>
-
-</section>
-
 {% endblock %}

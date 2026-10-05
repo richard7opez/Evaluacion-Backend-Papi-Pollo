@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block title %}{{ titulo }} - Gestión Papi Pollo{% endblock %}
+{% block content %}
+<div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+    <h2 class="h4 mb-0">{{ titulo }}</h2>
+    {% if puede_add %}<a class="btn btn-dark" href="{% url 'gestion_agregar' entidad %}">Agregar</a>{% endif %}
+</div>
+<form method="get" class="row g-2 mb-3">
+    <div class="col-md-6">
+        <label for="busqueda" class="form-label">Buscar</label>
+        <input id="busqueda" class="form-control" name="q" value="{{ q }}" type="search">
+    </div>
+    <div class="col-md-3">
+        <label for="estado" class="form-label">Estado</label>
+        <select id="estado" class="form-select" name="estado">
+            <option value="">Todos</option>
+            {% for valor, etiqueta in opciones_estado %}
+            <option value="{{ valor }}" {% if estado == valor %}selected{% endif %}>{{ etiqueta }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-md-3 d-flex align-items-end gap-2">
+        <button class="btn btn-dark" type="submit">Buscar</button>
+        <a class="btn btn-outline-secondary" href="{% url 'gestion_listado' entidad %}">Limpiar</a>
+    </div>
+</form>
+<p class="text-muted">{{ pagina.paginator.count }} registro{{ pagina.paginator.count|pluralize }}</p>
+<div class="table-responsive">
+<table class="table table-striped table-hover align-middle">
+    <thead><tr>
+    {% if entidad == 'productos' %}
+        <th>Imagen</th><th>Nombre</th><th>Categoría</th><th>Precio</th><th>Disponible</th><th>Ficha técnica</th>
+    {% elif entidad == 'sucursales' %}
+        <th>Nombre</th><th>Dirección</th><th>Comuna</th><th>Teléfono</th><th>Horario</th><th>Activa</th>
+    {% else %}
+        <th>Número</th><th>Cliente</th><th>Producto</th><th>Sucursal</th><th>Cantidad</th><th>Precio unitario</th><th>Total</th><th>Estado</th><th>Fecha</th>
+    {% endif %}
+        <th>Acciones</th>
+    </tr></thead>
+    <tbody>
+    {% for item in pagina %}
+    <tr>
+    {% if entidad == 'productos' %}
+        <td>{% if item.imagen %}<img src="{{ item.imagen.url }}" alt="{{ item.nombre }}" width="64" height="64" style="object-fit:contain">{% else %}Sin imagen{% endif %}</td>
+        <td>{{ item.nombre }}</td><td>{{ item.categoria }}</td><td>${{ item.precio }}</td>
+        <td>{{ item.disponible|yesno:"Sí,No" }}</td>
+        <td>{% if item.ficha_tecnica %}<a href="{% url 'producto_ficha' item.pk %}">Descargar PDF</a>{% else %}Sin documento{% endif %}</td>
+    {% elif entidad == 'sucursales' %}
+        <td>{{ item.nombre }}</td><td>{{ item.direccion }}</td><td>{{ item.comuna }}</td>
+        <td>{{ item.telefono|default:"—" }}</td><td>{{ item.horario|default:"—" }}</td><td>{{ item.activa|yesno:"Sí,No" }}</td>
+    {% else %}
+        <td>#{{ item.pk }}</td><td>{{ item.cliente }}</td><td>{{ item.producto }}</td><td>{{ item.sucursal }}</td>
+        <td>{{ item.cantidad }}</td><td>${{ item.precio_unitario }}</td><td>${{ item.total }}</td>
+        <td>{{ item.get_estado_display }}</td><td>{{ item.fecha_creacion|date:"d/m/Y H:i" }}</td>
+    {% endif %}
+        <td>
+            <div class="d-flex flex-wrap gap-2">
+            <a href="{% url 'gestion_detalle' entidad item.pk %}">Ver</a>
+            {% if puede_change %}<a href="{% url 'gestion_editar' entidad item.pk %}">Modificar</a>{% endif %}
+            {% if puede_delete %}<a class="text-danger" href="{% url 'gestion_eliminar' entidad item.pk %}">Eliminar</a>{% endif %}
+            {% if not puede_change and not puede_delete %}<span class="text-muted">Consulta</span>{% endif %}
+            </div>
+        </td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="10">No se encontraron registros.</td></tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+{% if pagina.has_other_pages %}
+<nav aria-label="Páginas de resultados" class="d-flex flex-wrap gap-3 align-items-center">
+    {% if pagina.has_previous %}<a href="?q={{ q|urlencode }}&amp;estado={{ estado|urlencode }}&amp;page={{ pagina.previous_page_number }}">Anterior</a>{% endif %}
+    <span>Página {{ pagina.number }} de {{ pagina.paginator.num_pages }}</span>
+    {% if pagina.has_next %}<a href="?q={{ q|urlencode }}&amp;estado={{ estado|urlencode }}&amp;page={{ pagina.next_page_number }}">Siguiente</a>{% endif %}
+</nav>
+{% endif %}
+{% endblock %}
+

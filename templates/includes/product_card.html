@@ -1,0 +1,15 @@
+<article class="product-card">
+    {% if producto.imagen %}
+        <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" class="product-image" loading="lazy">
+    {% else %}
+        <div class="product-no-image">Imagen próximamente</div>
+    {% endif %}
+    <div class="product-body">
+        <h3>{{ producto.nombre }}</h3>
+        <p class="product-description">{{ producto.descripcion|truncatewords:24 }}</p>
+        <div class="product-footer">
+            <span class="product-price">${{ producto.precio }}</span>
+            {% if producto.disponible %}<span class="status-open">Disponible</span>{% else %}<span class="badge bg-danger">No disponible</span>{% endif %}
+        </div>
+    </div>
+</article>

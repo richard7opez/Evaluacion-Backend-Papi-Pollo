@@ -1,0 +1,40 @@
+.home-page main { padding: 0; }
+.home-page main > .site-container { width: 100%; max-width: none; }
+.home-hero { background: #fff; }
+.home-hero img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 58vh;
+    object-fit: contain;
+    margin: 0 auto;
+}
+.home-selection, .home-locations { padding: 44px 0; }
+.home-quick { padding: 32px 0; background: #ffda00; }
+.home-locations { background: #fff; }
+.quick-links { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.quick-links a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 66px;
+    padding: 16px;
+    border: 2px solid #b91c17;
+    border-radius: 6px;
+    background: #c92319;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+}
+.quick-links a:hover { background: #a91611; }
+@media (max-width: 1000px) {
+    .quick-links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+    .home-selection, .home-locations { padding: 28px 0; }
+    .home-quick { padding: 26px 0; }
+    .quick-links { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+    .quick-links a { min-height: 54px; }
+}

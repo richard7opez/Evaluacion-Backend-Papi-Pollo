@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Eliminar - Papi Pollo{% endblock %}
+{% block content %}
+<h2 class="h4">Eliminar registro</h2>
+<p>¿Confirmas que deseas eliminar <strong>{{ registro }}</strong>?</p>
+<form method="post">
+    {% csrf_token %}
+    <button class="btn btn-danger" type="submit">Confirmar eliminación</button>
+    <a class="btn btn-outline-secondary" href="{% url 'gestion_listado' entidad %}">Cancelar</a>
+</form>
+{% endblock %}
+

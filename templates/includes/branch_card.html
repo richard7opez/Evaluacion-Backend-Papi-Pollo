@@ -1,0 +1,12 @@
+<article class="branch-card">
+    <div class="branch-heading">
+        <h3>{{ sucursal.nombre }}</h3>
+        {% if sucursal.activa %}<span class="status-open">Sucursal activa</span>{% else %}<span class="badge bg-danger">No disponible</span>{% endif %}
+    </div>
+    <dl class="branch-details">
+        <div><dt>Dirección</dt><dd>{{ sucursal.direccion }}</dd></div>
+        <div><dt>Comuna</dt><dd>{{ sucursal.comuna }}</dd></div>
+        <div><dt>Horario</dt><dd>{{ sucursal.horario|default:"Horario no informado" }}</dd></div>
+        <div><dt>Teléfono</dt><dd>{{ sucursal.telefono|default:"No informado" }}</dd></div>
+    </dl>
+</article>

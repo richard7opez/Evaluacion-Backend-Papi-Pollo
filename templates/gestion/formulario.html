@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}{{ titulo }} - Papi Pollo{% endblock %}
+{% block content %}
+<div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+    <h2 class="h4 mb-0">{% if registro %}Modificar{% else %}Agregar{% endif %} {{ titulo }}</h2>
+    <a class="btn btn-outline-dark" href="{% url 'gestion_listado' entidad %}">Volver</a>
+</div>
+<form method="post" enctype="multipart/form-data" class="mx-auto" style="max-width: 760px">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    {% for field in form %}
+    <div class="mb-3">
+        {{ field.label_tag }}
+        {{ field }}
+        {% if field.help_text %}<div class="form-text">{{ field.help_text }}</div>{% endif %}
+        {% for error in field.errors %}<div class="text-danger">{{ error }}</div>{% endfor %}
+    </div>
+    {% endfor %}
+    {% if entidad == 'pedidos' and registro %}
+    <p>Precio unitario registrado: ${{ registro.precio_unitario }} · Total: ${{ registro.total }}</p>
+    {% endif %}
+    <button class="btn btn-dark" type="submit">Guardar</button>
+    <a class="btn btn-outline-secondary" href="{% url 'gestion_listado' entidad %}">Cancelar</a>
+</form>
+{% endblock %}
+

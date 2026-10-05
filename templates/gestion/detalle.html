@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}{{ registro }} - Papi Pollo{% endblock %}
+{% block content %}
+<div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+    <h2 class="h4 mb-0 text-break">{{ registro }}</h2>
+    <a class="btn btn-outline-dark" href="{% url 'gestion_listado' entidad %}">Volver</a>
+</div>
+<dl class="row">
+{% if entidad == 'productos' %}
+    <dt class="col-sm-3">Nombre</dt><dd class="col-sm-9 text-break">{{ registro.nombre }}</dd>
+    <dt class="col-sm-3">Descripción</dt><dd class="col-sm-9 text-break">{{ registro.descripcion|default:'Sin descripción'|linebreaksbr }}</dd>
+    <dt class="col-sm-3">Categoría</dt><dd class="col-sm-9 text-break">{{ registro.categoria }}</dd>
+    <dt class="col-sm-3">Precio</dt><dd class="col-sm-9">${{ registro.precio }}</dd>
+    <dt class="col-sm-3">Disponible</dt><dd class="col-sm-9">{{ registro.disponible|yesno:'Sí,No' }}</dd>
+    <dt class="col-sm-3">Imagen</dt><dd class="col-sm-9">{% if registro.imagen %}<img src="{{ registro.imagen.url }}" alt="{{ registro.nombre }}" width="240" height="180" style="object-fit:contain">{% else %}Sin imagen{% endif %}</dd>
+    <dt class="col-sm-3">Ficha técnica</dt><dd class="col-sm-9">{% if registro.ficha_tecnica %}<a href="{% url 'producto_ficha' registro.pk %}">Descargar PDF</a>{% else %}Sin documento{% endif %}</dd>
+{% elif entidad == 'sucursales' %}
+    <dt class="col-sm-3">Nombre</dt><dd class="col-sm-9 text-break">{{ registro.nombre }}</dd>
+    <dt class="col-sm-3">Dirección</dt><dd class="col-sm-9 text-break">{{ registro.direccion }}</dd>
+    <dt class="col-sm-3">Comuna</dt><dd class="col-sm-9 text-break">{{ registro.comuna }}</dd>
+    <dt class="col-sm-3">Teléfono</dt><dd class="col-sm-9 text-break">{{ registro.telefono|default:'No informado' }}</dd>
+    <dt class="col-sm-3">Horario</dt><dd class="col-sm-9 text-break">{{ registro.horario|default:'No informado' }}</dd>
+    <dt class="col-sm-3">Activa</dt><dd class="col-sm-9">{{ registro.activa|yesno:'Sí,No' }}</dd>
+{% else %}
+    <dt class="col-sm-3">Cliente</dt><dd class="col-sm-9 text-break">{{ registro.cliente }}</dd>
+    <dt class="col-sm-3">Producto</dt><dd class="col-sm-9 text-break">{{ registro.producto }}</dd>
+    <dt class="col-sm-3">Sucursal</dt><dd class="col-sm-9 text-break">{{ registro.sucursal }}</dd>
+    <dt class="col-sm-3">Cantidad</dt><dd class="col-sm-9">{{ registro.cantidad }}</dd>
+    <dt class="col-sm-3">Precio unitario</dt><dd class="col-sm-9">${{ registro.precio_unitario }}</dd>
+    <dt class="col-sm-3">Total</dt><dd class="col-sm-9">${{ registro.total }}</dd>
+    <dt class="col-sm-3">Estado</dt><dd class="col-sm-9">{{ registro.get_estado_display }}</dd>
+    <dt class="col-sm-3">Observaciones</dt><dd class="col-sm-9 text-break">{{ registro.observaciones|default:'Sin observaciones'|linebreaksbr }}</dd>
+{% endif %}
+    <dt class="col-sm-3">Creación</dt><dd class="col-sm-9">{{ registro.fecha_creacion|date:'d/m/Y H:i' }}</dd>
+    <dt class="col-sm-3">Actualización</dt><dd class="col-sm-9">{{ registro.fecha_actualizacion|date:'d/m/Y H:i' }}</dd>
+</dl>
+{% if puede_change %}<a class="btn btn-dark" href="{% url 'gestion_editar' entidad registro.pk %}">Modificar</a>{% endif %}
+{% if puede_delete %}<a class="btn btn-outline-danger" href="{% url 'gestion_eliminar' entidad registro.pk %}">Eliminar</a>{% endif %}
+{% endblock %}

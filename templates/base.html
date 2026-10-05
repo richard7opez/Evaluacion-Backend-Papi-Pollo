@@ -24,10 +24,12 @@
         rel="stylesheet"
         href="{% static 'css/style.css' %}"
     >
+    {% block extra_css %}{% endblock %}
+    <link rel="stylesheet" href="{% static 'css/comercial.css' %}">
 </head>
 
 
-<body>
+<body class="{% block body_class %}{% endblock %}">
 
 
 <!-- ======================================================
@@ -43,21 +45,10 @@
             <a href="{% url 'inicio' %}"
                class="brand-link">
 
-                <div class="brand-logo">
-                    🐔
-                </div>
-
-                <div class="brand-text">
-
-                    <span class="brand-name">
-                        PAPI POLLO
-                    </span>
-
-                    <span class="brand-slogan">
-                        SABOR, CALIDAD Y TRADICIÓN
-                    </span>
-
-                </div>
+                <img src="{% static 'img/papi-pollo-logo.jpeg' %}"
+                     class="header-brand-image"
+                     alt="Papi Pollo - Inicio"
+                     width="1600" height="1521">
 
             </a>
 
@@ -67,6 +58,9 @@
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#menuPrincipal"
+                aria-controls="menuPrincipal"
+                aria-expanded="false"
+                aria-label="Abrir menú"
             >
 
                 <span class="navbar-toggler-icon"></span>
@@ -79,7 +73,7 @@
                 id="menuPrincipal"
             >
 
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto flex-wrap">
 
                     <li class="nav-item">
                         <a
@@ -108,15 +102,28 @@
                         </a>
                     </li>
 
+                    {% if perms.menu.view_producto %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'gestion_listado' 'productos' %}">Gestionar productos</a></li>
+                    {% endif %}
+                    {% if perms.sucursales.view_sucursal %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'gestion_listado' 'sucursales' %}">Gestionar sucursales</a></li>
+                    {% endif %}
+                    {% if perms.menu.view_pedido %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'gestion_listado' 'pedidos' %}">Pedidos</a></li>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                    {% if user.is_staff %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'admin:index' %}">Administración</a></li>
+                    {% endif %}
                     <li class="nav-item">
-                        <a
-                            class="nav-link"
-                            href="{% url 'listado_sucursales' %}"
-                        >
-                            Locales
-                        </a>
+                        <form method="post" action="{% url 'logout' %}">
+                            {% csrf_token %}
+                            <button class="nav-link border-0 bg-transparent" type="submit">Salir ({{ user.username }})</button>
+                        </form>
                     </li>
-
+                    {% else %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Ingresar</a></li>
+                    {% endif %}
                 </ul>
 
             </div>
@@ -132,33 +139,7 @@
      FRANJA
      ====================================================== -->
 
-<section class="brand-strip">
-
-    <div class="site-container brand-strip-content">
-
-        <span class="brand-strip-icon">
-            🔥
-        </span>
-
-        <div>
-
-            <h1>
-                Papi Pollo
-            </h1>
-
-            <p>
-                Pollo asado con sabor, calidad y tradición
-            </p>
-
-        </div>
-
-        <span class="brand-strip-icon">
-            🍗
-        </span>
-
-    </div>
-
-</section>
+{% block brand_strip %}{% include 'includes/brand_strip.html' %}{% endblock %}
 
 
 <!-- ======================================================
@@ -168,6 +149,10 @@
 <main>
 
     <div class="site-container">
+
+        {% for message in messages %}
+        <div class="alert {% if message.tags == 'error' %}alert-danger{% else %}alert-{{ message.tags|default:'info' }}{% endif %}" role="alert">{{ message }}</div>
+        {% endfor %}
 
         {% block content %}
 
@@ -182,111 +167,22 @@
      FOOTER
      ====================================================== -->
 
-<footer class="site-footer">
-
-    <div class="site-container">
-
-        <div class="footer-grid">
-
-            <div>
-
-                <div class="footer-brand">
-
-                    <div class="footer-logo">
-                        🐔
-                    </div>
-
-                    <div>
-
-                        <h3 class="mb-0">
-                            PAPI POLLO
-                        </h3>
-
-                        <small>
-                            Sabor que se disfruta
-                        </small>
-
-                    </div>
-
-                </div>
-
-                <p>
-                    Pollo asado, papas fritas y combos
-                    preparados con sabor y calidad.
-                </p>
-
-            </div>
-
-
-            <div>
-
-                <h4>
-                    Enlaces rápidos
-                </h4>
-
-                <ul class="footer-links">
-
-                    <li>
-                        <a href="{% url 'inicio' %}">
-                            Inicio
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="{% url 'productos' %}">
-                            Menú
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="{% url 'inicio_sucursales' %}">
-                            Sucursales
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="{% url 'listado_sucursales' %}">
-                            Locales
-                        </a>
-                    </li>
-
-                </ul>
-
-            </div>
-
-
-            <div>
-
-                <h4>
-                    Papi Pollo
-                </h4>
-
-                <p>
-                    🍗 Pollo asado
-                </p>
-
-                <p>
-                    📍 Región de Coquimbo, Chile
-                </p>
-
-                <p>
-                    🔥 Sabor, calidad y tradición
-                </p>
-
-            </div>
-
+<footer class="site-footer compact-footer">
+    <div class="site-container footer-layout">
+        <div class="footer-identity">
+            <strong>PAPI POLLO</strong>
+            <p>Pollo asado · Sazón peruano · Comida al paso</p>
         </div>
-
-
-        <div class="footer-bottom">
-
-            © 2026 Papi Pollo |
-            Sitio desarrollado con Django
-
+        <nav aria-label="Navegación del pie de página" class="footer-navigation">
+            <a href="{% url 'inicio' %}">Inicio</a>
+            <a href="{% url 'productos' %}">Menú</a>
+            <a href="{% url 'inicio_sucursales' %}">Sucursales</a>
+        </nav>
+        <div class="footer-contact">
+            <a href="https://wa.me/56944299541">WhatsApp: +56 9 4429 9541</a>
+            <a href="https://www.instagram.com/papipollo.chile/">Instagram: @papipollo.chile</a>
         </div>
-
     </div>
-
 </footer>
 
 

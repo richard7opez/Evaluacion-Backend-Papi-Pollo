@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block title %}Acceso restringido - Papi Pollo{% endblock %}
+{% block content %}
+<h2 class="h4">Acceso restringido</h2>
+<p>Tu usuario no tiene permiso para realizar esta acción.</p>
+<a href="{% url 'inicio' %}" class="btn btn-dark">Volver al inicio</a>
+{% endblock %}
+

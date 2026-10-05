@@ -3,7 +3,7 @@ from .models import Sucursal
 
 
 def inicio_sucursales(request):
-    return render(request, 'sucursales/inicio.html')
+    return listado_sucursales(request)
 
 
 def listado_sucursales(request):

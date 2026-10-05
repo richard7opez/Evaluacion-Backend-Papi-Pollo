@@ -5,6 +5,10 @@ Proyecto: Papi Pollo
 """
 
 from pathlib import Path
+import os
+
+from dotenv import load_dotenv
+from django.core.exceptions import ImproperlyConfigured
 
 
 # ==========================================================
@@ -12,17 +16,42 @@ from pathlib import Path
 # ==========================================================
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+load_dotenv(BASE_DIR / '.env')
 
 
 # ==========================================================
 # CONFIGURACIÓN GENERAL
 # ==========================================================
 
-SECRET_KEY = 'django-insecure-1*7#_zu01_(#ij^eb7$9yd$5p$*^#q@jenqui_31$nlqnv_0wf'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
-DEBUG = True
+if not SECRET_KEY:
+    raise ImproperlyConfigured(
+        'Configura DJANGO_SECRET_KEY en .env o en el entorno.'
+    )
 
-ALLOWED_HOSTS = []
+DEBUG = os.environ.get(
+    'DJANGO_DEBUG',
+    'False'
+).lower() in ('true', '1', 'yes')
+
+ALLOWED_HOSTS = [
+    host.strip()
+    for host in os.environ.get(
+        'DJANGO_ALLOWED_HOSTS',
+        'localhost,127.0.0.1'
+    ).split(',')
+    if host.strip()
+]
+
+
+# ==========================================================
+# AUTENTICACIÓN
+# ==========================================================
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'inicio'
+LOGOUT_REDIRECT_URL = 'inicio'
 
 
 # ==========================================================
@@ -40,6 +69,7 @@ INSTALLED_APPS = [
     # Aplicaciones del proyecto Papi Pollo
     'menu',
     'sucursales',
+    'pedidos',
 ]
 
 
@@ -69,7 +99,6 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
 
-        # Carpeta global de templates
         'DIRS': [
             BASE_DIR / 'templates',
         ],
@@ -149,7 +178,7 @@ STATICFILES_DIRS = [
 
 # ==========================================================
 # ARCHIVOS MULTIMEDIA
-# IMÁGENES SUBIDAS DESDE DJANGO ADMIN
+# IMÁGENES Y DOCUMENTOS SUBIDOS
 # ==========================================================
 
 MEDIA_URL = '/media/'
@@ -161,8 +190,11 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # EMAIL
 # ==========================================================
 
-MAILERS = {
-    'default': {
-        'BACKEND': 'django.core.mail.backends.console.EmailBackend',
-    },
-}
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+# ==========================================================
+# CLAVE PRIMARIA POR DEFECTO
+# ==========================================================
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
