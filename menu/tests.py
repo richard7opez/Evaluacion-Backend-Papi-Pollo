@@ -315,6 +315,48 @@ class GestionTests(TestCase):
             self.assertEqual(self.client.post(base + f"{item.pk}/delete/", {"post": "yes"}).status_code, 302)
             self.assertFalse(model.objects.filter(pk=item.pk).exists())
 
+    def test_listados_busqueda_y_templates_en_los_tres_perfiles(self):
+        for rol in ("Administrador", "Operador", "Consulta"):
+            self.login(rol)
+            for entidad, item, consulta in (
+                ("productos", self.producto, self.producto.nombre),
+                ("sucursales", self.sucursal, self.sucursal.comuna),
+                ("pedidos", self.pedido, self.producto.nombre),
+            ):
+                with self.subTest(rol=rol, entidad=entidad):
+                    url = f"/gestion/{entidad}/"
+                    response = self.client.get(url)
+                    self.assertTemplateUsed(response, "gestion/listado.html")
+                    self.assertContains(response, "<table")
+                    self.assertIn(item, response.context["pagina"])
+                    self.assertEqual(self.client.get(url, {"q": consulta}).context["pagina"].paginator.count, 1)
+                    self.assertEqual(self.client.get(url, {"q": "sin-coincidencia-xyz"}).context["pagina"].paginator.count, 0)
+                    if rol == "Administrador":
+                        confirmacion = self.client.get(url + f"{item.pk}/eliminar/")
+                        self.assertTemplateUsed(confirmacion, "gestion/eliminar.html")
+                        self.assertContains(confirmacion, "Confirmar eliminación")
+                        self.assertTrue(type(item).objects.filter(pk=item.pk).exists())
+
+    def test_admin_relaciones_y_busqueda_sin_resultados(self):
+        self.login("Administrador")
+        for model in (Producto, Sucursal, Pedido):
+            url = f"/admin/{model._meta.app_label}/{model._meta.model_name}/"
+            response = self.client.get(url, {"q": "sin-coincidencia-xyz"})
+            self.assertEqual(response.context["cl"].result_count, 0)
+        response = self.client.get("/admin/menu/pedido/", {"q": self.sucursal.nombre})
+        self.assertContains(response, self.producto.nombre)
+        self.assertContains(response, self.sucursal.nombre)
+        form = self.client.get(f"/admin/menu/pedido/{self.pedido.pk}/change/").context["adminform"].form
+        self.assertEqual(form["producto"].value(), self.producto.pk)
+        self.assertEqual(form["sucursal"].value(), self.sucursal.pk)
+
+    @override_settings(DEBUG=False)
+    def test_documentos_siguen_protegidos_sin_debug(self):
+        self.test_archivos_y_descarga_protegida()
+        producto = Producto.objects.order_by("-pk").first()
+        self.client.force_login(get_user_model().objects.create_user(username="sin_acceso_pdf"))
+        self.assertEqual(self.client.get(producto.ficha_tecnica.url).status_code, 403)
+
     def test_foreign_keys_rechazan_referencias_inexistentes(self):
         for field in ("producto_id", "sucursal_id"):
             with self.assertRaises(IntegrityError), transaction.atomic():

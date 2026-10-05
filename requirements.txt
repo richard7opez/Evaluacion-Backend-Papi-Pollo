@@ -5,3 +5,4 @@ pillow==12.3.0
 sqlparse==0.6.0
 tzdata==2026.3
 python-dotenv==1.2.4
+gunicorn==26.2.0; sys_platform == "linux"
