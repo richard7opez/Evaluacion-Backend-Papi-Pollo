@@ -1,0 +1,691 @@
+[
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2026-09-29T02:02:01.641Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Pollo entero",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2026-09-29T02:02:29.723Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Pollo entero",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Categoria\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2026-09-29T02:04:39.511Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Pollo entero",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Imagen\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2026-09-29T02:07:08.959Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "Medio pollo",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2026-09-29T02:07:34.068Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Pollo entero",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Descripcion\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2026-09-29T02:07:42.062Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "Medio pollo",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Descripcion\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2026-09-29T02:09:01.972Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "1/4 de pollo",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2026-09-29T03:03:41.899Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "4",
+    "object_repr": "Papas Fritas Grandes",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2026-09-29T03:05:40.336Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "Papas Mediana",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2026-09-29T03:06:50.668Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "6",
+    "object_repr": "Papas chicas",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2026-09-29T03:08:42.319Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "7",
+    "object_repr": "Pollo Crispy con Papas",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2026-09-29T03:10:25.459Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "8",
+    "object_repr": "Salchipapas",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2026-09-29T03:11:55.127Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "9",
+    "object_repr": "Completo Italiano",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2026-09-29T17:23:59.778Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "10",
+    "object_repr": "Coca-Cola 1.5 L",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2026-10-04T14:29:28.004Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Pollo entero",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Imagen\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2026-10-04T14:34:40.939Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Pollo entero",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2026-10-04T14:34:55.268Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "Medio pollo",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Imagen\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2026-10-04T14:35:05.890Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "1/4 de pollo",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Imagen\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2026-10-04T14:35:20.700Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "4",
+    "object_repr": "Papas Fritas Grandes",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Imagen\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2026-10-04T14:35:33.294Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "Papas Mediana",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Imagen\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2026-10-04T14:35:44.356Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "6",
+    "object_repr": "Papas chicas",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Imagen\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2026-10-04T14:36:17.191Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "7",
+    "object_repr": "Pollo Crispy con Papas",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Imagen\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2026-10-04T14:36:32.110Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "8",
+    "object_repr": "Salchipapas",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Imagen\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2026-10-04T14:36:48.212Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "9",
+    "object_repr": "Completo Italiano",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Imagen\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2026-10-04T14:37:00.568Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "10",
+    "object_repr": "Coca-Cola 1.5 L",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Imagen\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2026-10-04T15:51:12.063Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "Papi Pollo Coquimbo",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2026-10-04T16:00:20.801Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "Papi Pollo Coquimbo",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Horario de atenci\\u00f3n\"]}}]"
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 1,
+  "fields": {
+    "name": "Administrador",
+    "permissions": [
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      33,
+      34,
+      35,
+      36,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32
+    ]
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 2,
+  "fields": {
+    "name": "Operador",
+    "permissions": [
+      33,
+      34,
+      36,
+      25,
+      26,
+      28,
+      29,
+      30,
+      32
+    ]
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 3,
+  "fields": {
+    "name": "Consulta",
+    "permissions": [
+      36,
+      28,
+      32
+    ]
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$xy5yWW030jSW8IMdOAWsaP$UR5pPgYvUZPWein5mEYYfN7l9Hx981yQi+D3Hn8ljT0=",
+    "last_login": "2026-10-05T09:13:35.036Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "richard.lopez14@inacapmail.cl",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-09-29T01:51:59.109Z",
+    "groups": [
+      1
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$U5MXrYAh7iyaGSQ8u67sZf$7V+hCupHyUwGSnHgcHD2PRcvnymqOVIzZ+9SLj7XifA=",
+    "last_login": "2026-10-05T01:34:50.214Z",
+    "is_superuser": false,
+    "username": "operador",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-04T22:08:25.139Z",
+    "groups": [
+      2
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$5jvD6SGHJ0tfyeaK2Pwhj9$1v5EvvMEd7oQBxQKP8zAjB9IvryfpxjNTg1g5Q+f3iY=",
+    "last_login": "2026-10-05T01:14:20.416Z",
+    "is_superuser": false,
+    "username": "consulta",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-04T22:10:43.142Z",
+    "groups": [
+      3
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "aaaj4o7pdm496c2rqbdwffxn7kn4zqqg",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQAP-FsyHydOvRe7-BwO4iVQNJaU_GfzckPeh1ZjJvEeK-lbB3XsNC4iqUOP2yFPHJdQh6xHpvElvd1iXJkcjDdjk34tftaP8GJfYytuwse-OdmgxaNnQ2aCNYoKycykAJnZ_YXbzDkYDPgKA9R2NJaxCfL86_N1s:1xDMk0:mxZ2QD-GxNwc6AI51PA_ux8R6EVVFV5-AMvsTmQM-XI",
+    "expire_date": "2026-10-18T13:59:00.705Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "dcga2jwll0kf0j20jijvomrevgs6h3n3",
+  "fields": {
+    "session_data": ".eJxVjLsOwjAMAP_FM4rcPCDpyM43VI7jkAJKpKadEP-OKnWA9e50b5hoW8u0dVmmOcEIA5x-WSR-St1FelC9N8Wtrssc1Z6ow3Z1a0le16P9GxTqBUZgrT1blOy9jS4jcRguIkjo2THm4K1LWpC0kRAyio2SzxkjOhOMTvD5Au-7OC4:1xDelL:fKHnoEWikfXA7TfqJilNio5swJz5fL7J0MbL7SHD49M",
+    "expire_date": "2026-10-19T09:13:35.042Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "s1b87fszansa3h3iusx4phuhg17icoo8",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQAP-FsyHydOvRe7-BwO4iVQNJaU_GfzckPeh1ZjJvEeK-lbB3XsNC4iqUOP2yFPHJdQh6xHpvElvd1iXJkcjDdjk34tftaP8GJfYytuwse-OdmgxaNnQ2aCNYoKycykAJnZ_YXbzDkYDPgKA9R2NJaxCfL86_N1s:1xBaxI:iJeVe9F8bCWJXV0PK4qqWvgytluEdWwfs-BuxCiSdBM",
+    "expire_date": "2026-10-13T16:45:24.531Z"
+  }
+},
+{
+  "model": "menu.producto",
+  "pk": 1,
+  "fields": {
+    "nombre": "Pollo entero",
+    "descripcion": "Pollo asado preparado con sazón especial de Papi Pollo + Ensalada surtida",
+    "precio": 12000,
+    "categoria": "Pollos",
+    "disponible": true,
+    "imagen": "productos/pollo_entero.jpg",
+    "ficha_tecnica": "",
+    "fecha_creacion": "2026-10-04T15:39:57.229Z",
+    "fecha_actualizacion": "2026-10-04T15:39:57.216Z"
+  }
+},
+{
+  "model": "menu.producto",
+  "pk": 2,
+  "fields": {
+    "nombre": "Medio pollo",
+    "descripcion": "Medio pollo asado preparado con sazón especial de Papi Pollo + Ensalada surtida",
+    "precio": 7000,
+    "categoria": "Pollos",
+    "disponible": true,
+    "imagen": "productos/medio_pollo.jpg",
+    "ficha_tecnica": "",
+    "fecha_creacion": "2026-10-04T15:39:57.229Z",
+    "fecha_actualizacion": "2026-10-04T15:39:57.216Z"
+  }
+},
+{
+  "model": "menu.producto",
+  "pk": 3,
+  "fields": {
+    "nombre": "1/4 de pollo",
+    "descripcion": "1/4 de pollo asado preparado con sazón especial de Papi Pollo + Ensalada Surtida",
+    "precio": 4000,
+    "categoria": "Pollos",
+    "disponible": true,
+    "imagen": "productos/combo_pollo_papas.jpg",
+    "ficha_tecnica": "documentos/productos/Ficha_Tecnica_1-4_Pollo_.pdf",
+    "fecha_creacion": "2026-10-04T15:39:57.229Z",
+    "fecha_actualizacion": "2026-10-05T10:04:41.590Z"
+  }
+},
+{
+  "model": "menu.producto",
+  "pk": 4,
+  "fields": {
+    "nombre": "Papas Fritas Grandes",
+    "descripcion": "Bowl grande de papas fritas recién preparadas, doradas por fuera y suaves por dentro.",
+    "precio": 5000,
+    "categoria": "Papas Fritas",
+    "disponible": true,
+    "imagen": "productos/papas_grandes.jpg",
+    "ficha_tecnica": "",
+    "fecha_creacion": "2026-10-04T15:39:57.229Z",
+    "fecha_actualizacion": "2026-10-04T15:39:57.216Z"
+  }
+},
+{
+  "model": "menu.producto",
+  "pk": 5,
+  "fields": {
+    "nombre": "Papas Mediana",
+    "descripcion": "Caja mediana de papas fritas recién preparadas, doradas y crujientes",
+    "precio": 3000,
+    "categoria": "Papas Fritas",
+    "disponible": true,
+    "imagen": "productos/papas_mediana.jpg",
+    "ficha_tecnica": "",
+    "fecha_creacion": "2026-10-04T15:39:57.229Z",
+    "fecha_actualizacion": "2026-10-04T15:39:57.216Z"
+  }
+},
+{
+  "model": "menu.producto",
+  "pk": 6,
+  "fields": {
+    "nombre": "Papas chicas",
+    "descripcion": "Caja chica de papas fritas recién preparadas, doradas y crujientes",
+    "precio": 2000,
+    "categoria": "Papas Fritas",
+    "disponible": true,
+    "imagen": "productos/papas_chicas.jpg",
+    "ficha_tecnica": "",
+    "fecha_creacion": "2026-10-04T15:39:57.229Z",
+    "fecha_actualizacion": "2026-10-04T15:39:57.216Z"
+  }
+},
+{
+  "model": "menu.producto",
+  "pk": 7,
+  "fields": {
+    "nombre": "Pollo Crispy con Papas",
+    "descripcion": "Caja de pollo crispy, crujiente y dorado, acompañado de papas fritas recién preparadas.",
+    "precio": 5000,
+    "categoria": "Pollo Crispy",
+    "disponible": true,
+    "imagen": "productos/pollo_Crispi.jpg",
+    "ficha_tecnica": "",
+    "fecha_creacion": "2026-10-04T15:39:57.229Z",
+    "fecha_actualizacion": "2026-10-04T15:39:57.216Z"
+  }
+},
+{
+  "model": "menu.producto",
+  "pk": 8,
+  "fields": {
+    "nombre": "Salchipapas",
+    "descripcion": "Caja de papas fritas recién preparadas, doradas y crujientes, acompañadas de salchicha cortada en rodajas",
+    "precio": 3000,
+    "categoria": "Salchipapas",
+    "disponible": true,
+    "imagen": "productos/salchipapas.jpg",
+    "ficha_tecnica": "",
+    "fecha_creacion": "2026-10-04T15:39:57.229Z",
+    "fecha_actualizacion": "2026-10-04T15:39:57.216Z"
+  }
+},
+{
+  "model": "menu.producto",
+  "pk": 9,
+  "fields": {
+    "nombre": "Completo Italiano",
+    "descripcion": "Pan suave relleno con salchicha caliente, tomate fresco, palta y mayonesa",
+    "precio": 2500,
+    "categoria": "Completos",
+    "disponible": true,
+    "imagen": "productos/completo.jpg",
+    "ficha_tecnica": "",
+    "fecha_creacion": "2026-10-04T15:39:57.229Z",
+    "fecha_actualizacion": "2026-10-04T15:39:57.216Z"
+  }
+},
+{
+  "model": "menu.producto",
+  "pk": 10,
+  "fields": {
+    "nombre": "Coca-Cola 1.5 L",
+    "descripcion": "Botella de Coca-Cola sabor original de 1,5 litros",
+    "precio": 2400,
+    "categoria": "Bebida",
+    "disponible": true,
+    "imagen": "productos/Coca-Cola-15-L.png",
+    "ficha_tecnica": "",
+    "fecha_creacion": "2026-10-04T15:39:57.229Z",
+    "fecha_actualizacion": "2026-10-04T15:39:57.216Z"
+  }
+},
+{
+  "model": "menu.pedido",
+  "pk": 1,
+  "fields": {
+    "producto": 3,
+    "sucursal": 1,
+    "cliente": "richard",
+    "cantidad": 1,
+    "precio_unitario": 4000,
+    "estado": "preparacion",
+    "observaciones": "para llevar",
+    "fecha_creacion": "2026-10-04T22:38:03.758Z",
+    "fecha_actualizacion": "2026-10-04T22:38:03.758Z"
+  }
+},
+{
+  "model": "menu.pedido",
+  "pk": 2,
+  "fields": {
+    "producto": 9,
+    "sucursal": 1,
+    "cliente": "juan",
+    "cantidad": 3,
+    "precio_unitario": 2500,
+    "estado": "entregado",
+    "observaciones": "bien fria",
+    "fecha_creacion": "2026-10-05T01:37:18.727Z",
+    "fecha_actualizacion": "2026-10-05T01:38:37.575Z"
+  }
+},
+{
+  "model": "sucursales.sucursal",
+  "pk": 1,
+  "fields": {
+    "nombre": "Papi Pollo Coquimbo",
+    "direccion": "Av. Francisco Cabello",
+    "comuna": "COQUIMBO",
+    "telefono": "+56 9 1234 5678",
+    "horario": "Lunes a domingo 12:00 a 23:00",
+    "activa": true,
+    "fecha_creacion": "2026-10-04T15:51:12.059Z",
+    "fecha_actualizacion": "2026-10-04T16:00:20.797Z"
+  }
+}
+]
+
