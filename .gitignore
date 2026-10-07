@@ -7,6 +7,9 @@ __pycache__/
 staticfiles/
 *.sqlite3
 *.sqlite3-journal
+datos_sqlite*.json
+*.sql
+*.sql.gz
 backups/
 media/documentos/
 *.pem

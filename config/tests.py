@@ -10,7 +10,11 @@ from django.test import SimpleTestCase
 class EnvironmentSettingsTests(SimpleTestCase):
     def load_settings(self, **environment):
         # No lee .env real ni abre conexiones a bases de datos.
-        values = {"DJANGO_SECRET_KEY": "clave-ficticia-solo-para-pruebas", **environment}
+        values = {
+            "DJANGO_SECRET_KEY": "clave-ficticia-solo-para-pruebas",
+            "JWT_SIGNING_KEY": "clave-jwt-ficticia-exclusiva-para-tests-no-produccion",
+            **environment,
+        }
         with patch.dict(os.environ, values, clear=True), patch("dotenv.load_dotenv"):
             return runpy.run_path(str(Path(__file__).with_name("settings.py")))
 
@@ -48,6 +52,11 @@ class EnvironmentSettingsTests(SimpleTestCase):
         with self.assertRaisesMessage(ImproperlyConfigured, "DJANGO_SECRET_KEY"):
             self.load_settings(DJANGO_SECRET_KEY="")
 
+    def test_clave_jwt_obligatoria_y_suficientemente_larga(self):
+        for clave in ("", "corta"):
+            with self.assertRaisesMessage(ImproperlyConfigured, "JWT_SIGNING_KEY"):
+                self.load_settings(JWT_SIGNING_KEY=clave)
+
     def test_https_y_hosts_por_entorno(self):
         config = self.load_settings(
             DJANGO_DEBUG="False", DJANGO_ALLOWED_HOSTS=" ejemplo.test, localhost ",
@@ -68,3 +77,28 @@ class EnvironmentSettingsTests(SimpleTestCase):
         config = self.load_settings()
         self.assertNotIn(config["STATIC_ROOT"], config["STATICFILES_DIRS"])
         self.assertNotIn("SECURE_PROXY_SSL_HEADER", config)
+        self.assertFalse(config["SECURE_HSTS_INCLUDE_SUBDOMAINS"])
+        self.assertFalse(config["SECURE_HSTS_PRELOAD"])
+
+    def test_perfil_produccion_por_entorno_supera_checks_seguridad(self):
+        from django.core.checks import Tags, run_checks
+        from django.test import override_settings
+
+        config = self.load_settings(
+            DJANGO_SECRET_KEY="Solo-pruebas-abcdefghijklmnopqrstuvwxyz-0123456789-ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+            DJANGO_DEBUG="False", DJANGO_ALLOWED_HOSTS="produccion.example.test",
+            DJANGO_CSRF_TRUSTED_ORIGINS="https://produccion.example.test",
+            DJANGO_SECURE_SSL_REDIRECT="True", DJANGO_TRUST_PROXY="True",
+            DJANGO_SESSION_COOKIE_SECURE="True", DJANGO_CSRF_COOKIE_SECURE="True",
+            DJANGO_SECURE_HSTS_SECONDS="3600",
+            DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS="True", DJANGO_SECURE_HSTS_PRELOAD="True",
+        )
+        claves = (
+            "SECRET_KEY", "DEBUG", "ALLOWED_HOSTS", "CSRF_TRUSTED_ORIGINS",
+            "SECURE_SSL_REDIRECT", "SECURE_PROXY_SSL_HEADER", "SESSION_COOKIE_SECURE",
+            "CSRF_COOKIE_SECURE", "SECURE_HSTS_SECONDS",
+            "SECURE_HSTS_INCLUDE_SUBDOMAINS", "SECURE_HSTS_PRELOAD",
+        )
+        with override_settings(**{clave: config[clave] for clave in claves}):
+            avisos = run_checks(tags=[Tags.security], include_deployment_checks=True)
+        self.assertEqual(avisos, [])

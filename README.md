@@ -1,5 +1,39 @@
 # Papi Pollo - Sistema Web Backend
 
+## Evaluacion Sumativa 3: API RESTful
+
+Antes de publicar o actualizar GitHub, revisar [seguridad de produccion](docs/SEGURIDAD_PRODUCCION.md).
+La rotacion de secretos y la exclusion de bases locales no eliminan datos sensibles del historial Git anterior.
+
+La web de Evaluacion 2 se conserva. La API reutiliza sus modelos, base y permisos.
+Autor: **Richard Lopez Nuñez**, Programacion Back End, INACAP.
+
+```powershell
+.\venv\Scripts\python.exe -m pip install -r requirements.txt
+.\venv\Scripts\python.exe -m api.configurar_clave_jwt
+.\venv\Scripts\python.exe manage.py check
+.\venv\Scripts\python.exe manage.py runserver
+```
+
+El generador solo configura JWT_SIGNING_KEY en el .env existente si falta o es
+demasiado corta; no imprime secretos ni cambia usuarios, contrasenas o datos.
+Un entorno nuevo debe configurar primero su .env segun .env.example.
+No copiar .env.example encima de un .env existente.
+
+- Swagger: http://127.0.0.1:8000/api/v1/docs/
+- OpenAPI JSON: http://127.0.0.1:8000/api/v1/schema/
+- Access/Refresh: POST /api/v1/token/; renovacion: POST /api/v1/token/refresh/.
+- Productos, Sucursales y Pedidos: /api/v1/productos/, /api/v1/sucursales/, /api/v1/pedidos/.
+- [Contrato, ejemplos y defensa](docs/API.md).
+- [Documento tecnico](docs/documento_tecnico.md).
+- [Evidencias del apoyo de IA](docs/evidencias_ia.md).
+- [Lista de capturas y guion de defensa](docs/EVIDENCIAS_Y_DEFENSA.md).
+- [Actualizar la instancia EC2 existente](docs/ACTUALIZACION_EC2_API.md).
+
+La implementacion y validacion local no acreditan despliegue AWS. La actualizacion
+remota y sus evidencias estan pendientes. No se necesitan migraciones nuevas
+para la API ni cambios a los grupos existentes.
+
 Proyecto desarrollado para la asignatura **Programación Back End - INACAP**, correspondiente a la **Evaluación Sumativa N.º 2**.
 
 ## Descripción

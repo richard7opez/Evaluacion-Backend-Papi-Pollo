@@ -5,4 +5,9 @@ pillow==12.3.0
 sqlparse==0.6.0
 tzdata==2026.3
 python-dotenv==1.2.4
+djangorestframework==3.18.3
+djangorestframework-simplejwt==5.5.1
+PyJWT==2.15.1
+drf-spectacular[sidecar]==0.30.0
+drf-spectacular-sidecar==2026.10.1
 gunicorn==26.2.0; sys_platform == "linux"

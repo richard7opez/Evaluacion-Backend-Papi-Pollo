@@ -7,6 +7,7 @@ from menu.gestion import documento_media
 
 
 urlpatterns = [
+    path('api/v1/', include('api.urls')),
     path('admin/', admin.site.urls),
     path('cuentas/login/', auth_views.LoginView.as_view(), name='login'),
     path('cuentas/logout/', auth_views.LogoutView.as_view(), name='logout'),

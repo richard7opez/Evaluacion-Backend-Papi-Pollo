@@ -5,6 +5,7 @@ Proyecto: Papi Pollo
 """
 
 from pathlib import Path
+from datetime import timedelta
 import os
 
 from dotenv import load_dotenv
@@ -65,6 +66,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'drf_spectacular',
+    'drf_spectacular_sidecar',
+    'api',
 
     # Aplicaciones del proyecto Papi Pollo
     'menu',
@@ -227,6 +232,49 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# API independiente de las sesiones y permisos de las vistas web.
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.IsAuthenticated'],
+    'DEFAULT_RENDERER_CLASSES': ['rest_framework.renderers.JSONRenderer'],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 20,
+    'EXCEPTION_HANDLER': 'api.exceptions.exception_handler',
+    'DEFAULT_THROTTLE_RATES': {'tokens': '10/min'},
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+JWT_SIGNING_KEY = os.environ.get('JWT_SIGNING_KEY', '')
+if len(JWT_SIGNING_KEY.encode()) < 32:
+    raise ImproperlyConfigured(
+        'JWT_SIGNING_KEY debe tener al menos 32 bytes aleatorios. '
+        'Ejecuta python -m api.configurar_clave_jwt para configurar .env.'
+    )
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'SIGNING_KEY': JWT_SIGNING_KEY,
+    'AUTH_HEADER_TYPES': ('Bearer',),
+    'UPDATE_LAST_LOGIN': False,
+    'CHECK_REVOKE_TOKEN': True,
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Papi Pollo API',
+    'DESCRIPTION': 'Evaluacion Sumativa 3. API con permisos Django y JWT. '
+                   'Administrador: CRUD; Operador: consulta/alta/edicion; Consulta: lectura. '
+                   'Los campos privados de Pedido y la ficha tecnica se reservan al Administrador.',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    'COMPONENT_SPLIT_REQUEST': True,
+    'SWAGGER_UI_DIST': 'SIDECAR',
+    'SWAGGER_UI_FAVICON_HREF': 'SIDECAR',
+    'SWAGGER_UI_SETTINGS': {'persistAuthorization': False, 'displayRequestDuration': True},
+}
+
 
 # Activar HTTPS/proxy solo cuando la infraestructura correspondiente este lista.
 CSRF_TRUSTED_ORIGINS = [
@@ -238,5 +286,7 @@ SECURE_SSL_REDIRECT = os.environ.get('DJANGO_SECURE_SSL_REDIRECT', 'False').lowe
 SESSION_COOKIE_SECURE = os.environ.get('DJANGO_SESSION_COOKIE_SECURE', str(not DEBUG)).lower() in ('true', '1', 'yes')
 CSRF_COOKIE_SECURE = os.environ.get('DJANGO_CSRF_COOKIE_SECURE', str(not DEBUG)).lower() in ('true', '1', 'yes')
 SECURE_HSTS_SECONDS = int(os.environ.get('DJANGO_SECURE_HSTS_SECONDS', '0'))
+SECURE_HSTS_INCLUDE_SUBDOMAINS = os.environ.get('DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS', 'False').lower() in ('true', '1', 'yes')
+SECURE_HSTS_PRELOAD = os.environ.get('DJANGO_SECURE_HSTS_PRELOAD', 'False').lower() in ('true', '1', 'yes')
 if os.environ.get('DJANGO_TRUST_PROXY', 'False').lower() in ('true', '1', 'yes'):
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
